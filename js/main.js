@@ -15,7 +15,7 @@ let filtterCountry, filterRange;
 
 Promise.all([
     d3.csv("data/per_year.csv", d=>{
-        d.total_PBA_ggCO2 = parseFloat(d.total_PBA_ggCO2);
+        d.total_pba = parseFloat(d.total_pba);
         d.Year = parseDate(d.Year.toString());
         return d;
     }), 
