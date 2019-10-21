@@ -1,17 +1,17 @@
-// import StackedAreaChart from './StackedAreaChart.js';
+import StackedAreaChart from './StackedAreaChart.js';
 // import Timeline from './Timeline.js';
 
 let yearData, countryData; 
 
 let parseDate = d3.timeParse("%Y");
 
-// let areaChart = StackedAreaChart()
-//     .on("select", onSelectCountry);
+let areaChart = StackedAreaChart()
+    .on("select", onSelectCountry);
 
 // let timeline = Timeline()
 //     .on("brushed", onBrushRange);
 
-let filtterCountry, filterRange;
+let filterCountry, filterRange;
 
 Promise.all([
     d3.csv("data/per_year.csv", d=>{
@@ -40,9 +40,9 @@ Promise.all([
         .datum(countryData)
         .call(areaChart);
 
-    d3.select("#timeline")
-        .datum(yearData)
-        .call(timeline);
+    // d3.select("#timeline")
+    //     .datum(yearData)
+    //     .call(timeline);
 })
 
 function onSelectCountry(d, i){
