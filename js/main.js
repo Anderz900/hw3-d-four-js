@@ -1,5 +1,5 @@
 import StackedAreaChart from './StackedAreaChart.js';
-// import Timeline from './Timeline.js';
+import Timeline from './Timeline.js';
 
 let yearData, countryData; 
 
@@ -8,8 +8,8 @@ let parseDate = d3.timeParse("%Y");
 let areaChart = StackedAreaChart()
     .on("select", onSelectCountry);
 
-// let timeline = Timeline()
-//     .on("brushed", onBrushRange);
+let timeline = Timeline()
+    .on("brushed", onBrushRange);
 
 let filterCountry, filterRange;
 
@@ -33,29 +33,27 @@ Promise.all([
     yearData = data[0];
     countryData = data[1];
 
-    console.log(yearData);
-    console.log(countryData);
-
     d3.select("#stacked-area-chart")
         .datum(countryData)
         .call(areaChart);
 
-    // d3.select("#timeline")
-    //     .datum(yearData)
-    //     .call(timeline);
+    d3.select("#timeline")
+        .datum(yearData)
+        .call(timeline);
 })
 
 function onSelectCountry(d, i){
     filterCountry = filterCountry===d?null:d;
-    let filtered = filteredCountryData(filterCountry, filterRange);
+    console.log(filterRange);
+    let filtered = filterCountryData(filterCountry, filterRange);
     d3.select("#stacked-area-chart")
         .datum(filtered)
         .call(areaChart);
 }
 
-function onBrushRange(dataRange) {
+function onBrushRange(dateRange) {
     filterRange = dateRange;
-    let filtered = filtterCountryData(filterCountry, filterRange);
+    let filtered = filterCountryData(filterCountry, filterRange);
     d3.select("#stacked-area-chart")
         .datum(filtered)
         .call(areaChart);
@@ -66,7 +64,7 @@ function within(d, range){
 }
 
 function filterCountryData(country, dateRange) {
-    let filtered = dataRange?categoryData.filter(d=>within(d.Year, dataRange)): countryData; 
+    let filtered = dateRange?countryData.filter(d=>within(d.Year, dateRange)): countryData; 
     filtered = filtered.map(row=>{
         return country?{
             Year:row.Year,

@@ -13,12 +13,10 @@ export default function Timeline(){
       .scale(x),
     area = d3.area(),
     brush = d3.brushX();
-    // Activity III  create a new dispatch with a custom event 
+
     let listeners = d3.dispatch('brushed'); // 'brushed' is the name of our custom event
   
-    
-  
-  
+
   function chart(selection){
     selection.each(function(data){
       let innerWidth = width  - margin.left - margin.right; // margin convention
@@ -54,7 +52,7 @@ export default function Timeline(){
       // SVG area path generator
       area.x(function(d) { return x(d.Year); })
         .y0(innerHeight)
-        .y1(function(d) { return y(d.Expenditures); });
+        .y1(function(d) { return y(d.total_pba); });
   
       // Draw area by using the path generator
       g.select('path')
@@ -63,7 +61,6 @@ export default function Timeline(){
         .attr("fill", "#ccc")
         .attr("d", area);
   
-      // Activity III - Set the brush extent, brush event listener, and render the brush
       brush.extent([[0, 0], [innerWidth, innerHeight]])
             .on("brush", handleBrush);
   
@@ -77,15 +74,12 @@ export default function Timeline(){
     });
   }
   
-  // Activity III  define 'on' function to enable external modules to register callbacks for the custom event
-    // allow users to register for your custom events 
     chart.on = function() {// allow users to register for your custom events 
       var value = listeners.on.apply(listeners, arguments);
       return value === listeners ? chart : value;
     };
   
   function handleBrush(){
-    // Activity III  - call registered callbacks and send the brush filter information
     listeners.apply('brushed', this, [d3.event.selection.map(x.invert), d3.event.selection]); 
   }
   

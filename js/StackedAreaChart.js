@@ -6,20 +6,20 @@ export default function StackedAreaChart(){
         left: 60,
         right: 0,
         bottom: 60
-    }
+    };
 
-    let width=800
-    let height=400
+    let width=800;
+    let height=400;
 
     // initialize axis variables to be updated in real time
-    let x = d3.scaleTime()
-    let y = d3.scaleLinear()
-    let color = d3.scaleOrdinal(d3.schemeCategory10)
-    let yAxis = d3.axisLeft().scale(y)
-    let xAxis = d3.axisBottom().scale(x).tickFormat(d3.format('d'))
+    let x = d3.scaleTime();
+    let y = d3.scaleLinear();
+    let color = d3.scaleOrdinal(d3.schemeCategory10);
+    let yAxis = d3.axisLeft().scale(y);
+    let xAxis = d3.axisBottom().scale(x);
     let listeners = d3.dispatch('select');
 
-    let stack, stackedData, area, tooltip
+    let stack, stackedData, area, tooltip;
 
     // reusable chart update function
     function chart(selection){
@@ -27,16 +27,16 @@ export default function StackedAreaChart(){
 
             // initialize internal structure once
             let svg = d3.select(this).selectAll('svg')
-                .data([data])
+                .data([data]);
 
-            let svgEnter = svg.enter().append('svg')
-            let groupEnter = svgEnter.append('g')
-
-            groupEnter.append('g')
-                .attr('class', 'x-axis axis')
+            let svgEnter = svg.enter().append('svg');
+            let groupEnter = svgEnter.append('g');
 
             groupEnter.append('g')
-                .attr('class', 'y-axis axis')
+                .attr('class', 'x-axis axis');
+
+            groupEnter.append('g')
+                .attr('class', 'y-axis axis');
             
             
             groupEnter.append("text")
@@ -49,46 +49,48 @@ export default function StackedAreaChart(){
             // creating the stacked area chart
 
             // updating canvas size
-            svg = svg.merge(svgEnter)
-            svg.attr('width', width)
-            svg.attr('height', height)
+            svg = svg.merge(svgEnter);
+
+            svg.attr('width', width);
+            svg.attr('height', height);
 
             let group = svg.select("g")
-                .attr("transform", "translate(" + margin.left + "," + margin.top + ")")
+                .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 
             tooltip = group.select('.focus')
 
-            let countries = data.length>0?Object.keys(data[0]).filter(d=>d!=="Country"):[];
+            let countries = data.length>0?Object.keys(data[0]).filter(d=>d!=="Year"):[];
             
             // intialize stack layout
             stack = d3.stack()
-                .keys(countries)
+                .keys(countries);
             
             // stack data
-            stackedData = stack(data)
+            stackedData = stack(data);
             
+            console.log(data);
             console.log(countries)
-            console.log(stackedData)
+            console.log(stackedData);
 
             // scales and axes
             x.range([0, width - margin.left - margin.right])
-                .domain(d3.extent(data, d=>d.Country))
+                .domain(d3.extent(data, d=>d.Year));
 
             y.range([height - margin.top-margin.bottom, 0])
-                .domain([0, d3.max(stackedData, d=>d3.max(d=>d[1]))])
+                .domain([0, d3.max(stackedData, d => d3.max(d, d=>d[1]))]);
 
             color.domain(countries)
 
             // Stacked area layout
             area = d3.area()
                 .curve(d3.curveCardinal)
-                .x(d=>x(d.Country))
+                .x(d=>x(d.data.Year))
                 .y0(d=>y(d[0]))
-                .y1(d=>y(d[1]))
+                .y1(d=>y(d[1]));
 
             // drawing the chart layers
             let countryStacks = group.selectAll('.area')
-                .data(stackedData)
+                .data(stackedData);
             
             countryStacks
                 .enter()
@@ -97,9 +99,9 @@ export default function StackedAreaChart(){
                 .merge(countryStacks)
                 .style('fill', (d, i)=>color(countries[i]))
                 .attr('d', d=>area(d))
-                // .on()  
-                // .on()
-                // .on()
+                .on("click", handleClick)
+                .on("mouseover", (d,i)=>tooltip.text(countries[i]))
+                .on("mouseout", d=>tooltip.text(""));
 
             countryStacks.exit().remove()
 
@@ -133,8 +135,6 @@ export default function StackedAreaChart(){
     function handleClick(d,i){
 		listeners.apply("select", this, [d.key,d.index]);
 	}
-
-    // event listener stuff
 
     return chart
 
