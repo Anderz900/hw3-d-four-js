@@ -81,24 +81,23 @@ export default function StackedBarChart(){
             console.log(stackedData);
             color.domain(keys);
 
-            x.domain(data.map(d=>d.Type));
+            //x.domain(data.map(d=>d.Type));
+            x.domain(["Ecological footprint","Biocapacity"]);
             y.domain([0, d3.max(countryData, d=>d.total)]);
-
+            
             let bars = group.selectAll(".bar")
                 .data(stackedData)
                 .enter()
                 .append("rect")
-                .attr("x", d=>{x(d.type);})
-                .attr("y", d=>{
-                    console.log(d.data);
-                })
-                .attr("height", d=>{y(d[0])-y(d[1]) })
+                .attr("x", d=>{ return x(d.type); })
+                .attr("y", d=>{ y(d[1]); })
+                .attr("height", d=>{ return y(d[0])-y(d[1]); })
                 .attr("width", x.bandwidth());
             
             let xAxisGroup = group.append("g")
-            .attr("class", "x-axis axis")
-            .attr("transform", "translate(0," + height + ")")
-            .call(xAxis);
+                .attr("class", "x-axis axis")
+                .attr("transform", "translate(0," + height + ")")
+                .call(xAxis);
         
             let yAxisGroup = group.append("g")
                 .attr("class", "y-axis axis")
