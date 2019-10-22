@@ -20,10 +20,90 @@ export default function StackedAreaChart(){
     let listeners = d3.dispatch('select');
 
     let stack, stackedData, area, tooltip;
-
+    //  function dataFiltering(x){
+    //    var attractions = attractionData;
+    //    console.log(attractionData);
+    
+    //    attractions.sort(function(a,b){return b.x - a.x});
+    //    console.log(attractions)
+    //    attractions.slice(0,5);
+    //    attractions = attractions.slice(0,5);
+    //    renderBarChart(attractions);
+    
     // reusable chart update function
+    function removeColumn(data, colIndex) {
+        var temp = data.split("\n");
+        let res = '';
+        for(var i = 0; i < temp.length; ++i) {
+            temp[i] = temp[i].split(",");
+            res+= temp[i].splice(colIndex,1) + '\n';
+            temp[i] = temp[i].join(","); 
+        }
+        return res;
+        
+    }
+   
+    
+
+
     function chart(selection){
         selection.each(function(data){ // contains a currently selected container element
+            console.log("ayo")
+            let dataz = data;
+            let n = data.length - 1;
+            console.log(dataz)
+            let organize1 = dataz[n];
+            console.log(organize1);
+            let organize2 = (Object.values(organize1));
+            let organize5 = []
+            for (let i = 0; i<organize2.length;i++){organize5[i] = organize2[i];}
+            console.log(organize5);
+            organize2.sort(function(a,b){return b - a });
+            let organize3 = organize2.slice(0,20);
+            console.log(organize3);
+            console.log(organize2);
+            console.log(organize5);
+            let list1 = []
+            for (let i = 0; i<organize5.length; i++){
+                if (organize3.includes(organize5[i])){list1.push(i)}
+            }
+            
+            console.log(list1)
+            
+            
+            let data3 = ''
+            console.log(data[1]);
+            let datavals = data;
+            let maxlength = Object.values(datavals[0]).length
+            console.log(maxlength);
+            for (let i = 0; i<datavals.length; i++){
+                let organise = Object.values(datavals[i]);
+                data3 += (organise) + '\n';
+            }
+
+            
+            let data4 = '';
+            console.log(data3);
+            console.log("ayooo");
+            
+            console.log(list1);
+            
+            console.log("ayooo");
+            //data3= removeColumn(data3, )
+            console.log(data3);
+            for (let i = 1; i<list1.length;i++){
+                data4 += removeColumn(data3, list1[i]);
+
+                }  
+            
+            console.log("mikecheck");
+            console.log(data4);
+            
+            
+           
+            
+
+            
 
             // initialize internal structure once
             let svg = d3.select(this).selectAll('svg')
