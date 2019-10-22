@@ -1,12 +1,16 @@
 import StackedAreaChart from './StackedAreaChart.js';
 import Timeline from './Timeline.js';
+//**************************
+import StackedBarChart from './StackedBarChart.js';
 
-let yearData, countryData; 
+let yearData, countryData, categoryData; 
 
 let parseDate = d3.timeParse("%Y");
 
 let areaChart = StackedAreaChart()
     .on("select", onSelectCountry);
+
+let barChart = StackedBarChart();
 
 let timeline = Timeline()
     .on("brushed", onBrushRange);
@@ -28,13 +32,28 @@ Promise.all([
             }
         })
         return d;
+    }),
+    d3.csv("data/per_country_eco_breakdown.csv", d=>{
+        Object.keys(d).forEach(key=>{
+            if(key!="Type"&&key!="Category") {
+                d[key] = parseFloat(d[key]);
+            }
+        })
+        return d;
     })
 ]).then(data=>{
     yearData = data[0];
     countryData = data[1];
+    categoryData = data[2];
+
+    console.log(categoryData);
+
+    d3.select("#stacked-bar-chart")
+        .datum(categoryData)
+        .call(barChart);
 
     d3.select("#stacked-area-chart")
-        .datum(countryData)
+        .datum(countryData, categoryData)
         .call(areaChart);
 
     d3.select("#timeline")
@@ -44,7 +63,6 @@ Promise.all([
 
 function onSelectCountry(d, i){
     filterCountry = filterCountry===d?null:d;
-    console.log(filterRange);
     let filtered = filterCountryData(filterCountry, filterRange);
     d3.select("#stacked-area-chart")
         .datum(filtered)

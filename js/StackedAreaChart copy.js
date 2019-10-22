@@ -1,3 +1,5 @@
+//**************************
+import StackedBarChart from './StackedBarChart.js';
 
 export default function StackedAreaChart(){
 
@@ -22,13 +24,25 @@ export default function StackedAreaChart(){
 
     let stack, stackedData, area, tooltip;
 
+    //************************** 
+    let tool_tip = d3.tip()
+        .attr("class", "d3-tip")
+        .offset([20,120])
+        .html("<div id='tipDiv'></div>");
+
+    let barChart = StackedBarChart();
+
     // reusable chart update function
     function chart(selection){
         selection.each(function(data, categoryData){ // contains a currently selected container element
-  
+            console.log(data);
+            console.log(categoryData);
             // initialize internal structure once
             let svg = d3.select(this).selectAll('svg')
                 .data([data]);
+
+            //**************************
+            //svg.call(tool_tip);
 
             let svgEnter = svg.enter().append('svg');
             let groupEnter = svgEnter.append('g');
@@ -68,7 +82,7 @@ export default function StackedAreaChart(){
             
             // stack data
             stackedData = stack(data);
-            
+
             // scales and axes
             x.range([0, width - margin.left - margin.right])
                 .domain(d3.extent(data, d=>d.Year));
@@ -97,8 +111,16 @@ export default function StackedAreaChart(){
                 .style('fill', (d, i)=>color(countries[i]))
                 .attr('d', d=>area(d))
                 .on("click", handleClick)
-                .on("mouseover", (d,i)=>tooltip.text(countries[i]))
-                .on("mouseout", d=>tooltip.text(""));
+                //**************************
+                .on("mouseover", (d)=>{
+                    tool_tip.show();
+                    d3.select("#tipDiv")
+                        .datum(categoryData)
+                        .call(barChart);
+                })
+                .on('mouseout', tool_tip.hide);
+                //.on("mouseover", (d,i)=>tooltip.text(countries[i]))
+                //.on("mouseout", d=>tooltip.text(""));
 
             countryStacks.exit().remove()
 
