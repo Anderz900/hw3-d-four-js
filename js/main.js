@@ -40,16 +40,65 @@ Promise.all([
     d3.select("#timeline")
         .datum(yearData)
         .call(timeline);
+    
+    //new function call
+    countryList();
 })
 
+//start here
+//loads country names into search bar
+function countryList(){
+    let countrylist = Object.keys(countryData[0]).slice(1);
+
+    d3.select('datalist').selectAll('option')
+        .data(countrylist, function(d){
+            return d;
+        })
+        .enter()
+        .append('option')
+        .attr('value', function(d){
+            return d;
+        })
+}
+
+
+
+// d3.select('.countries')
+//     .data(countryData, function(d){
+//         //return d.
+//     })
+//     .enter()
+//     .append();
+
+d3.select("#selection")
+    .on("change", function(){
+        let e = document.getElementById("selection");
+        //let e = document.querySelector('#selection');
+        //let selectedcountry = e.options[e.selectedIndex]//.value;
+        console.log(e.value);
+        onSelectCountry([e.value]);
+})
+d3.select('#selection')
+    .on('click', function(){
+        let e = document.getElementById("selection");
+        e.value = '';
+    })
+
+
+
+//end here
+
+//for stacked area chart, not dropdown menu
 function onSelectCountry(d, i){
+    console.log(d);
     filterCountry = filterCountry===d?null:d;
-    console.log(filterRange);
+
+    //console.log(filterRange);
     let filtered = filterCountryData(filterCountry, filterRange);
     d3.select("#stacked-area-chart")
         .datum(filtered)
         .call(areaChart);
-}
+}    
 
 function onBrushRange(dateRange) {
     filterRange = dateRange;
@@ -58,6 +107,7 @@ function onBrushRange(dateRange) {
         .datum(filtered)
         .call(areaChart);
 }
+
 
 function within(d, range){
     return d.getTime()>=range[0].getTime()&&d.getTime()<=range[1].getTime();
@@ -73,3 +123,5 @@ function filterCountryData(country, dateRange) {
     });
     return filtered;
 }
+
+

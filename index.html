@@ -24,6 +24,14 @@
 				
 				<h2>Global Carbon Footprints per Country from 1970-2017</h2>
 				<h2></h2>
+				
+				<!-- Start -->
+				<form class='country-selector' onsubmit='return formsubmit(event)'>
+					<input id='selection' type='search' list='countries'>
+					<datalist id="countries"></datalist> 
+					
+				</form>
+				<!-- End -->
 
 				<div id="stacked-area-chart"></div>
 				<div id="timeline"></div>
@@ -36,6 +44,14 @@
 
 	<!-- Load JS libraries: D3 -->
 	<script src="js/d3.min.js"></script>
+	<!-- start script prevents menu choices from refreshing page -->
+	<script>
+		function formsubmit(e){
+			e.preventDefault();
+			return false;
+		}
+	</script>
+	<!-- end -->
 
 	<!-- Your implementation -->
 	<script type="module" src="js/main.js"></script>
