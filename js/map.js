@@ -1,5 +1,7 @@
 var imported = document.createElement('script');
+
 //imported.src = './js/papaparse.min.js';
+
 document.head.appendChild(imported);
 
 let susData
