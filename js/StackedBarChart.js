@@ -46,6 +46,8 @@ export default function StackedBarChart(){
         Carbon_urban: 0,
         total: 0
     }
+
+    let category, stack, stackedData;
     
     function chart(selection){
         selection.each(function(data){
@@ -76,8 +78,8 @@ export default function StackedBarChart(){
             //let keys = ["Cropland","Grazing Land","Forest Land","Fishing Water","Carbon/Urban Land"];
             let keys = countryData.length>0?Object.keys(countryData[0]).filter(d=>d!=="type"&&d!="total"):[];
 
-            let stack = d3.stack().keys(keys);
-            let stackedData = stack(countryData);
+            stack = d3.stack().keys(keys);
+            stackedData = stack(countryData);
             console.log(stackedData);
             color.domain(keys);
 
@@ -104,18 +106,10 @@ export default function StackedBarChart(){
                 })
                 .attr("width", x.bandwidth())
                 .on("mouseover", (d,i)=>{
-                    let category;
-                    Object.keys(d.data).forEach(key=>{
-                        console.log(key);
-                        console.log(d.data[key], d[1]-d[0]);
-                        if(d.data[key] === (d[1]-d[0])){
-                            console.log(key);
-                            category = key;
-                        }
-                    });
-                    console.log("the category is", category);
-
-                });
+                    getCategory(d);
+                })
+                .on("mouseout", function(d) {
+                });	
             
             //let xAxisGroup = 
             group.append("g")
@@ -132,7 +126,15 @@ export default function StackedBarChart(){
     }
 
 
-
+    function getCategory(d) {
+        Object.keys(d.data).forEach(key=>{
+            if(d.data[key] === (d[1]-d[0])){
+                console.log(key);
+                category = key;
+            }
+        });
+        console.log("the category is", category);
+    }
 
 
     function transformData(data, country) {
