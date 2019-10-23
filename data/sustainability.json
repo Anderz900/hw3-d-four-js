@@ -1,0 +1,754 @@
+[
+    {
+      "Country": "Afghanistan",
+      "Sustainability": -0.3
+    },
+    {
+      "Country": "Albania",
+      "Sustainability": -1.03
+    },
+    {
+      "Country": "Algeria",
+      "Sustainability": -1.53
+    },
+    {
+      "Country": "Angola",
+      "Sustainability": 1.61
+    },
+    {
+      "Country": "Antigua and Barbuda",
+      "Sustainability": -4.44
+    },
+    {
+      "Country": "Argentina",
+      "Sustainability": 3.78
+    },
+    {
+      "Country": "Armenia",
+      "Sustainability": -1.35
+    },
+    {
+      "Country": "Aruba",
+      "Sustainability": -11.31
+    },
+    {
+      "Country": "Australia",
+      "Sustainability": 7.26
+    },
+    {
+      "Country": "Austria",
+      "Sustainability": -3
+    },
+    {
+      "Country": "Azerbaijan",
+      "Sustainability": -1.46
+    },
+    {
+      "Country": "Bahamas",
+      "Sustainability": 2.71
+    },
+    {
+      "Country": "Bahrain",
+      "Sustainability": -6.91
+    },
+    {
+      "Country": "Bangladesh",
+      "Sustainability": -0.35
+    },
+    {
+      "Country": "Barbados",
+      "Sustainability": -4.29
+    },
+    {
+      "Country": "Belarus",
+      "Sustainability": -1.45
+    },
+    {
+      "Country": "Belgium",
+      "Sustainability": -6.25
+    },
+    {
+      "Country": "Benin",
+      "Sustainability": -0.53
+    },
+    {
+      "Country": "Bermuda",
+      "Sustainability": -5.64
+    },
+    {
+      "Country": "Bhutan",
+      "Sustainability": 0.43
+    },
+    {
+      "Country": "Bolivia",
+      "Sustainability": 13.77
+    },
+    {
+      "Country": "Bosnia and Herz.",
+      "Sustainability": -1.49
+    },
+    {
+      "Country": "Botswana",
+      "Sustainability": -0.35
+    },
+    {
+      "Country": "Brazil",
+      "Sustainability": 5.97
+    },
+    {
+      "Country": "British Virgin Islands",
+      "Sustainability": -0.81
+    },
+    {
+      "Country": "Brunei",
+      "Sustainability": -1.19
+    },
+    {
+      "Country": "Bulgaria",
+      "Sustainability": -0.46
+    },
+    {
+      "Country": "Burkina Faso",
+      "Sustainability": -0.22
+    },
+    {
+      "Country": "Burundi",
+      "Sustainability": -0.48
+    },
+    {
+      "Country": "Cabo Verde",
+      "Sustainability": -1.9
+    },
+    {
+      "Country": "Cambodia",
+      "Sustainability": -0.11
+    },
+    {
+      "Country": "Cameroon",
+      "Sustainability": 0.52
+    },
+    {
+      "Country": "Canada",
+      "Sustainability": 7.83
+    },
+    {
+      "Country": "Cayman Islands",
+      "Sustainability": -5.33
+    },
+    {
+      "Country": "Central African Rep.",
+      "Sustainability": 6.62
+    },
+    {
+      "Country": "Chad",
+      "Sustainability": 0.57
+    },
+    {
+      "Country": "Chile",
+      "Sustainability": -0.73
+    },
+    {
+      "Country": "China",
+      "Sustainability": -2.44
+    },
+    {
+      "Country": "Colombia",
+      "Sustainability": 1.72
+    },
+    {
+      "Country": "Comoros",
+      "Sustainability": -0.7
+    },
+    {
+      "Country": "Congo",
+      "Sustainability": 9.63
+    },
+    {
+      "Country": "Dem. Rep. Congo",
+      "Sustainability": 2.25
+    },
+    {
+      "Country": "Costa Rica",
+      "Sustainability": -1.31
+    },
+    {
+      "Country": "C�te d'Ivoire",
+      "Sustainability": 0.51
+    },
+    {
+      "Country": "Croatia",
+      "Sustainability": -1.12
+    },
+    {
+      "Country": "Cuba",
+      "Sustainability": -1.19
+    },
+    {
+      "Country": "Cyprus",
+      "Sustainability": -3.87
+    },
+    {
+      "Country": "Czechia",
+      "Sustainability": -2.73
+    },
+    {
+      "Country": "Denmark",
+      "Sustainability": -0.73
+    },
+    {
+      "Country": "Djibouti",
+      "Sustainability": -1.42
+    },
+    {
+      "Country": "Dominica",
+      "Sustainability": -1.54
+    },
+    {
+      "Country": "Dominican Rep.",
+      "Sustainability": -0.97
+    },
+    {
+      "Country": "Ecuador",
+      "Sustainability": 0.03
+    },
+    {
+      "Country": "Egypt",
+      "Sustainability": -1.59
+    },
+    {
+      "Country": "El Salvador",
+      "Sustainability": -1.46
+    },
+    {
+      "Country": "Eq. Guinea",
+      "Sustainability": 0.44
+    },
+    {
+      "Country": "Eritrea",
+      "Sustainability": 0.88
+    },
+    {
+      "Country": "Estonia",
+      "Sustainability": 3.67
+    },
+    {
+      "Country": "Ethiopia",
+      "Sustainability": -0.44
+    },
+    {
+      "Country": "Fiji",
+      "Sustainability": -0.52
+    },
+    {
+      "Country": "Finland",
+      "Sustainability": 7.57
+    },
+    {
+      "Country": "France",
+      "Sustainability": -2.04
+    },
+    {
+      "Country": "French Guiana",
+      "Sustainability": 109.01
+    },
+    {
+      "Country": "French Polynesia",
+      "Sustainability": -3.36
+    },
+    {
+      "Country": "Gabon",
+      "Sustainability": 24.29
+    },
+    {
+      "Country": "Gambia",
+      "Sustainability": -0.21
+    },
+    {
+      "Country": "Georgia",
+      "Sustainability": -0.41
+    },
+    {
+      "Country": "Germany",
+      "Sustainability": -3.02
+    },
+    {
+      "Country": "Ghana",
+      "Sustainability": -0.62
+    },
+    {
+      "Country": "Greece",
+      "Sustainability": -2.77
+    },
+    {
+      "Country": "Grenada",
+      "Sustainability": -1.01
+    },
+    {
+      "Country": "Guadeloupe",
+      "Sustainability": -2.77
+    },
+    {
+      "Country": "Guatemala",
+      "Sustainability": -0.9
+    },
+    {
+      "Country": "Guinea",
+      "Sustainability": 0.68
+    },
+    {
+      "Country": "Guinea-Bissau",
+      "Sustainability": 1.49
+    },
+    {
+      "Country": "Guyana",
+      "Sustainability": 63.51
+    },
+    {
+      "Country": "Haiti",
+      "Sustainability": -0.34
+    },
+    {
+      "Country": "Honduras",
+      "Sustainability": 0.09
+    },
+    {
+      "Country": "Hungary",
+      "Sustainability": -0.75
+    },
+    {
+      "Country": "India",
+      "Sustainability": -0.71
+    },
+    {
+      "Country": "Indonesia",
+      "Sustainability": -0.32
+    },
+    {
+      "Country": "Iran",
+      "Sustainability": -1.89
+    },
+    {
+      "Country": "Iraq",
+      "Sustainability": -1.59
+    },
+    {
+      "Country": "Ireland",
+      "Sustainability": -1.83
+    },
+    {
+      "Country": "Israel",
+      "Sustainability": -5.87
+    },
+    {
+      "Country": "Italy",
+      "Sustainability": -3.53
+    },
+    {
+      "Country": "Jamaica",
+      "Sustainability": -1.46
+    },
+    {
+      "Country": "Japan",
+      "Sustainability": -4.3
+    },
+    {
+      "Country": "Jordan",
+      "Sustainability": -1.89
+    },
+    {
+      "Country": "Kazakhstan",
+      "Sustainability": -2.14
+    },
+    {
+      "Country": "Kenya",
+      "Sustainability": -0.52
+    },
+    {
+      "Country": "North Korea",
+      "Sustainability": -0.57
+    },
+    {
+      "Country": "South Korea",
+      "Sustainability": -5.01
+    },
+    {
+      "Country": "Kuwait",
+      "Sustainability": -7.58
+    },
+    {
+      "Country": "Kyrgyzstan",
+      "Sustainability": -0.61
+    },
+    {
+      "Country": "Laos",
+      "Sustainability": 0.4
+    },
+    {
+      "Country": "Latvia",
+      "Sustainability": 3.26
+    },
+    {
+      "Country": "Lebanon",
+      "Sustainability": -3.51
+    },
+    {
+      "Country": "Lesotho",
+      "Sustainability": -0.87
+    },
+    {
+      "Country": "Liberia",
+      "Sustainability": 1.35
+    },
+    {
+      "Country": "Libya",
+      "Sustainability": -3
+    },
+    {
+      "Country": "Lithuania",
+      "Sustainability": -0.17
+    },
+    {
+      "Country": "Luxembourg",
+      "Sustainability": -14.14
+    },
+    {
+      "Country": "Macedonia",
+      "Sustainability": -1.75
+    },
+    {
+      "Country": "Madagascar",
+      "Sustainability": 1.64
+    },
+    {
+      "Country": "Malawi",
+      "Sustainability": -0.15
+    },
+    {
+      "Country": "Malaysia",
+      "Sustainability": -1.3
+    },
+    {
+      "Country": "Mali",
+      "Sustainability": 0.05
+    },
+    {
+      "Country": "Martinique",
+      "Sustainability": -1.7
+    },
+    {
+      "Country": "Mauritania",
+      "Sustainability": 1.93
+    },
+    {
+      "Country": "Mauritius",
+      "Sustainability": -2.75
+    },
+    {
+      "Country": "Mexico",
+      "Sustainability": -1.62
+    },
+    {
+      "Country": "Moldova",
+      "Sustainability": -0.98
+    },
+    {
+      "Country": "Mongolia",
+      "Sustainability": 9.58
+    },
+    {
+      "Country": "Montenegro",
+      "Sustainability": -0.54
+    },
+    {
+      "Country": "Montserrat",
+      "Sustainability": -6.42
+    },
+    {
+      "Country": "Morocco",
+      "Sustainability": -0.96
+    },
+    {
+      "Country": "Mozambique",
+      "Sustainability": 1.19
+    },
+    {
+      "Country": "Myanmar",
+      "Sustainability": 0.41
+    },
+    {
+      "Country": "Namibia",
+      "Sustainability": 4.4
+    },
+    {
+      "Country": "Nauru",
+      "Sustainability": -2.76
+    },
+    {
+      "Country": "Nepal",
+      "Sustainability": -0.38
+    },
+    {
+      "Country": "Netherlands",
+      "Sustainability": -4.11
+    },
+    {
+      "Country": "New Caledonia",
+      "Sustainability": 4.09
+    },
+    {
+      "Country": "New Zealand",
+      "Sustainability": 4.54
+    },
+    {
+      "Country": "Nicaragua",
+      "Sustainability": 0.87
+    },
+    {
+      "Country": "Niger",
+      "Sustainability": -0.32
+    },
+    {
+      "Country": "Nigeria",
+      "Sustainability": -0.47
+    },
+    {
+      "Country": "Norway",
+      "Sustainability": 3.19
+    },
+    {
+      "Country": "Oman",
+      "Sustainability": -5.6
+    },
+    {
+      "Country": "Pakistan",
+      "Sustainability": -0.44
+    },
+    {
+      "Country": "Panama",
+      "Sustainability": 0.15
+    },
+    {
+      "Country": "Papua New Guinea",
+      "Sustainability": 2.01
+    },
+    {
+      "Country": "Paraguay",
+      "Sustainability": 6.36
+    },
+    {
+      "Country": "Peru",
+      "Sustainability": 1.69
+    },
+    {
+      "Country": "Philippines",
+      "Sustainability": -0.56
+    },
+    {
+      "Country": "Poland",
+      "Sustainability": -2.36
+    },
+    {
+      "Country": "Portugal",
+      "Sustainability": -2.37
+    },
+    {
+      "Country": "Qatar",
+      "Sustainability": -9.56
+    },
+    {
+      "Country": "Réunion",
+      "Sustainability": -3.47
+    },
+    {
+      "Country": "Romania",
+      "Sustainability": -0.39
+    },
+    {
+      "Country": "Russia",
+      "Sustainability": 1.1
+    },
+    {
+      "Country": "Rwanda",
+      "Sustainability": -0.32
+    },
+    {
+      "Country": "Saint Kitts and Nevis",
+      "Sustainability": -4.31
+    },
+    {
+      "Country": "Saint Lucia",
+      "Sustainability": -2.1
+    },
+    {
+      "Country": "Saint Vincent and Grenadines",
+      "Sustainability": -1.85
+    },
+    {
+      "Country": "Samoa",
+      "Sustainability": -0.85
+    },
+    {
+      "Country": "Sao Tome and Principe",
+      "Sustainability": -0.61
+    },
+    {
+      "Country": "Saudi Arabia",
+      "Sustainability": -5.12
+    },
+    {
+      "Country": "Senegal",
+      "Sustainability": -0.16
+    },
+    {
+      "Country": "Serbia",
+      "Sustainability": -1.44
+    },
+    {
+      "Country": "Sierra Leone",
+      "Sustainability": 0
+    },
+    {
+      "Country": "Singapore",
+      "Sustainability": -7.92
+    },
+    {
+      "Country": "Slovakia",
+      "Sustainability": -1.35
+    },
+    {
+      "Country": "Slovenia",
+      "Sustainability": -3.47
+    },
+    {
+      "Country": "Solomon Is.",
+      "Sustainability": 3.08
+    },
+    {
+      "Country": "Somalia",
+      "Sustainability": 0.03
+    },
+    {
+      "Country": "South Africa",
+      "Sustainability": -2.16
+    },
+    {
+      "Country": "Spain",
+      "Sustainability": -2.42
+    },
+    {
+      "Country": "Sri Lanka",
+      "Sustainability": -0.88
+    },
+    {
+      "Country": "Suriname",
+      "Sustainability": 85.08
+    },
+    {
+      "Country": "eSwatini",
+      "Sustainability": -1.14
+    },
+    {
+      "Country": "Sweden",
+      "Sustainability": 3.38
+    },
+    {
+      "Country": "Switzerland",
+      "Sustainability": -4.48
+    },
+    {
+      "Country": "Syria",
+      "Sustainability": -0.91
+    },
+    {
+      "Country": "Tajikistan",
+      "Sustainability": -0.38
+    },
+    {
+      "Country": "Tanzania",
+      "Sustainability": -0.24
+    },
+    {
+      "Country": "Thailand",
+      "Sustainability": -1.42
+    },
+    {
+      "Country": "Timor-Leste",
+      "Sustainability": 1.3
+    },
+    {
+      "Country": "Togo",
+      "Sustainability": -0.6
+    },
+    {
+      "Country": "Tonga",
+      "Sustainability": -1.22
+    },
+    {
+      "Country": "Trinidad and Tobago",
+      "Sustainability": -6.36
+    },
+    {
+      "Country": "Tunisia",
+      "Sustainability": -1.4
+    },
+    {
+      "Country": "Turkey",
+      "Sustainability": -1.81
+    },
+    {
+      "Country": "Turkmenistan",
+      "Sustainability": -2.68
+    },
+    {
+      "Country": "Uganda",
+      "Sustainability": -0.66
+    },
+    {
+      "Country": "Ukraine",
+      "Sustainability": -0.58
+    },
+    {
+      "Country": "United Kingdom",
+      "Sustainability": -3.62
+    },
+    {
+      "Country": "United Arab Emirates",
+      "Sustainability": -7.37
+    },
+    {
+      "Country": "United States of America",
+      "Sustainability": -4.46
+    },
+    {
+      "Country": "Uruguay",
+      "Sustainability": 7.41
+    },
+    {
+      "Country": "Uzbekistan",
+      "Sustainability": -1.4
+    },
+    {
+      "Country": "Venezuela",
+      "Sustainability": -0.79
+    },
+    {
+      "Country": "Vietnam",
+      "Sustainability": -0.65
+    },
+    {
+      "Country": "Wallis and Futuna Islands",
+      "Sustainability": -0.56
+    },
+    {
+      "Country": "Yemen",
+      "Sustainability": -0.53
+    },
+    {
+      "Country": "Zambia",
+      "Sustainability": 1.24
+    },
+    {
+      "Country": "Zimbabwe",
+      "Sustainability": -0.75
+    }
+  ]
