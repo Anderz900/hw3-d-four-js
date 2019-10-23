@@ -87,24 +87,53 @@ export default function StackedBarChart(){
             
             let bars = group.selectAll(".bar")
                 .data(stackedData)
+                .enter().append("g")
+                    .attr("fill", (d,i)=>{
+                        return color(keys[i])})
+                .selectAll("rect")
+                .data(function(d) { 
+                    return d; })
                 .enter()
                 .append("rect")
-                .attr("x", d=>{ return x(d.type); })
-                .attr("y", d=>{ y(d[1]); })
-                .attr("height", d=>{ return y(d[0])-y(d[1]); })
-                .attr("width", x.bandwidth());
+                .attr("x", d=>{ 
+                    return x(d.data.type); })
+                .attr("y", d=>{ 
+                    return y(d[1]); })
+                .attr("height", (d,i)=>{ 
+                    return y(d[0])-y(d[1]); 
+                })
+                .attr("width", x.bandwidth())
+                .on("mouseover", (d,i)=>{
+                    let category;
+                    Object.keys(d.data).forEach(key=>{
+                        console.log(key);
+                        console.log(d.data[key], d[1]-d[0]);
+                        if(d.data[key] === (d[1]-d[0])){
+                            console.log(key);
+                            category = key;
+                        }
+                    });
+                    console.log("the category is", category);
+
+                });
             
-            let xAxisGroup = group.append("g")
+            //let xAxisGroup = 
+            group.append("g")
                 .attr("class", "x-axis axis")
                 .attr("transform", "translate(0," + height + ")")
                 .call(xAxis);
         
-            let yAxisGroup = group.append("g")
+            //let yAxisGroup = 
+            group.append("g")
                 .attr("class", "y-axis axis")
                 .call(yAxis);
             
         })
     }
+
+
+
+
 
     function transformData(data, country) {
         footprint.Cropland = data[0][country];

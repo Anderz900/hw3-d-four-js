@@ -3,7 +3,7 @@ import Timeline from './Timeline.js';
 //**************************
 import StackedBarChart from './StackedBarChart.js';
 
-let yearData, countryData, categoryData; 
+let yearData, countryData, categoryData, susData; 
 
 let parseDate = d3.timeParse("%Y");
 
@@ -40,13 +40,23 @@ Promise.all([
             }
         })
         return d;
+    }),
+    d3.csv("data/per_country_sustainability.csv", d=>{
+        Object.keys(d).forEach(key=>{
+            if(key!="Country") {
+                d[key] = parseFloat(d[key]);
+            }
+        })
+        return d;
     })
 ]).then(data=>{
     yearData = data[0];
     countryData = data[1];
     categoryData = data[2];
+    susData = data[3];
 
     console.log(categoryData);
+    //console.log(susData);
 
     d3.select("#stacked-bar-chart")
         .datum(categoryData)
