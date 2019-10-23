@@ -1,0 +1,68 @@
+h1{
+    margin-left: 4%;
+    color: #EEEEEE
+}
+
+body {
+    background: #181818;
+}
+
+ul{
+    list-style: none;
+}
+
+#map {
+    margin-left: 15px;
+    margin-right: 40px;
+}
+
+#map-area{
+    margin-top: 1%;
+    color: #878787;
+}
+#info{
+    color: #CBCBCB;
+    text-align: left;
+    margin-top: 2%;
+    margin-right: 2%;
+    padding-left: 70px;
+}
+section{
+    height: 100vh;
+    overflow: hidden;
+}
+#countryName{
+    font-size: 60px;
+}
+#countrySus{
+    font-size: 40px;
+}
+
+
+
+li{
+    font-size: 20px;
+    float: left
+}
+i{
+    padding-right: 30px;
+}
+
+p{
+    padding-top: 10px;
+    display: inline-block;
+    left: 0;
+    font-size: 15px;
+    
+}
+#low{
+    padding-right: 115px;
+}
+#high{
+    /* margin-right:100px; */
+    padding-right: 0px;
+}
+#nodata{
+    padding-top: 5px;
+    font-size: 14px;
+}

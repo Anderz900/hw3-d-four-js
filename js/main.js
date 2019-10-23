@@ -2,6 +2,7 @@ import StackedAreaChart from './StackedAreaChart.js';
 import Timeline from './Timeline.js';
 //**************************
 import StackedBarChart from './StackedBarChart.js';
+//import Map from './map.js';
 
 let yearData, countryData, categoryData, susData; 
 
@@ -55,10 +56,10 @@ Promise.all([
     categoryData = data[2];
     susData = data[3];
 
-    console.log(categoryData);
+    //sconsole.log(categoryData);
     //console.log(susData);
 
-    d3.select("#stacked-bar-chart")
+    d3.select("#stacked-bar-chart2")
         .datum(categoryData)
         .call(barChart);
 

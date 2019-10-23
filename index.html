@@ -11,12 +11,12 @@
 	<link rel="stylesheet" href="css/fontawesome.min.css">
 	<link rel="stylesheet" href="css/milligram.min.css">
 	<link rel="stylesheet" href="css/style.css">
+	<script src="js/d3.min.js"></script>
 </head>
 <body>
 
+	<!-- <section>
 	<div class="container">
-		<!-- Feel free to remove but make sure to have a link to the project info -->
-		<h1>HW 3 Boilerplate</h1>
 		<a href="about.html" target="_blank">Project Info</a>
 
 		<div class="row">
@@ -27,21 +27,51 @@
 
 				<div id="stacked-area-chart"></div>
 				<div id="timeline"></div>
-				<select id="country-select" class="select-control">
-					<option value="United States of America">USA</option>
-					<option value="China">China</option>
-				</select>
-				<div id="stacked-bar-chart"></div>
 			
 			</div>
 		</div>
-
 	</div>
+	</section> -->
+	<section id="map">
+        <div class="row">
+            <div class="column" id="map-area">
+                    <h1>Country Sustainability Exploration</h1>
+            </div>
+            
+            <div class="column" id="info">
+                <ul id="key">
+                    <i class="fas fa-circle fa-2x" style="color: #760000"></i>
+                    <i class="fas fa-circle fa-2x" style="color: rgb(197, 0, 0)"></i>
+                    <i class="fas fa-circle fa-2x" style="color: rgb(255, 111, 111)"></i>
+                    <i class="fas fa-circle fa-2x" style="color: #81FF98"></i>
+                    <i class="fas fa-circle fa-2x" style="color: rgb(0, 207, 93)"></i>
+                    <i class="fas fa-circle fa-2x" style="color:rgb(23, 124, 55)"></i>
+        
+                    <p id="low">Low Sustainability</p>
+                    <p id="high">High Sustainability</p>
+                    <br>
+                    <div id="nodata">
+                    <i class="fas fa-circle fa-2x" id="nodata" style="color: ##222222"></i> No Data
+                    </div>
+                </ul>
+                <span id="countryName"></span>
+                <br>
+				<span id="countrySus"></span>
+				<div id="stacked-bar-chart"></div>
+				<div id="stacked-bar-chart2"></div>
+				<div id="stacked-area-chart"></div>
+				<div id="timeline"></div>
+                </div>
 
+            </div>
+        </div>
+    </section>
+    <script src="./js/topojson.min.js"></script>
+    <script src="./js/map.js"></script>
 
 	<!-- Load JS libraries: D3 -->
-	<script src="js/d3.min.js"></script>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/d3-tip/0.7.1/d3-tip.min.js"></script>
+	
+
 	<!-- Your implementation -->
 	<script type="module" src="js/main.js"></script>
 </body>
