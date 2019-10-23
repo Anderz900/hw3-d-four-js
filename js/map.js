@@ -233,6 +233,7 @@ function ecologyMap(){
       
       function reset() {
 
+        document.querySelector('#stacked-bar-chart').innerHTML = ''
         document.querySelector('#countryName').innerHTML = ''
         document.querySelector('#countrySus').innerHTML = ''
 
@@ -315,77 +316,81 @@ function ecologyMap(){
         return [footprint, biocapacity];
       }
 
-      function drawStackedBarChart(countryData) {
-          //select("#stacked-bar-chart")
-        svg = d3.select("#stacked-bar-chart").selectAll("svg")
-          .data([countryData]);
+}
 
-        svgEnter = svg.enter().append("svg");
-        groupEnter = svgEnter.append("g");
+function drawStackedBarChart(countryData) {
+    //select("#stacked-bar-chart")
 
-        groupEnter.append('g')
-            .attr("class", "x-axis axis");
+  document.querySelector('#stacked-bar-chart').innerHTML = ''
 
-        groupEnter.append("g")
-            .attr("class", "y-axis axis");
-        
-        svg = svg.merge(svgEnter);
+  svg = d3.select("#stacked-bar-chart").selectAll("svg")
+    .data([countryData]);
 
-        svg.attr("width", widthBar + marginBar.left + marginBar.right);
-        svg.attr("height", heightBar + marginBar.top + marginBar.bottom);
+  svgEnter = svg.enter().append("svg");
+  groupEnter = svgEnter.append("g");
 
-        group = svg.select("g")
-            .attr("transform", "translate(" + marginBar.left + "," + marginBar.top + ")");
+  groupEnter.append('g')
+      .attr("class", "x-axis axis");
 
-        //let keys = ["Cropland","Grazing Land","Forest Land","Fishing Water","Carbon/Urban Land"];
-        let keys = countryData.length>0?Object.keys(countryData[0]).filter(d=>d!=="type"&&d!="total"):[];
+  groupEnter.append("g")
+      .attr("class", "y-axis axis");
+  
+  svg = svg.merge(svgEnter);
 
-        stack = d3.stack().keys(keys);
-        stackedData = stack(countryData);
-        console.log(stackedData);
-        color.domain(keys);
+  svg.attr("width", widthBar + marginBar.left + marginBar.right);
+  svg.attr("height", heightBar + marginBar.top + marginBar.bottom);
 
-        //x.domain(data.map(d=>d.Type));
-        x.domain(["Ecological footprint","Biocapacity"]);
-        y.domain([0, d3.max(countryData, d=>d.total)]);
-        
-        bars = group.selectAll(".bar")
-            .data(stackedData)
-            .enter().append("g")
-                .attr("fill", (d,i)=>{
-                    return color(keys[i])})
-            .selectAll("rect")
-            .data(function(d) { 
-                return d;
-            })
-            .enter()
-            .append("rect")
-            .attr("x", d=>{ 
-                return x(d.data.type); 
-            })
-            .attr("y", d=>{ 
-                return y(d[1]); })
-            .attr("height", (d,i)=>{ 
-                return y(d[0])-y(d[1]); 
-            })
-            .attr("width", x.bandwidth())
-            .on("mouseover", (d,i)=>{
-                getCategory(d);
-            })
-            .on("mouseout", function(d) {
-            });	
-        
-        let xAxisGroup = 
-        group.append("g")
-            .attr("class", "x-axis axis")
-            .attr("transform", "translate(0," + heightBar + ")")
-            .call(xAxis);
-    
-        //let yAxisGroup = 
-        group.append("g")
-            .attr("class", "y-axis axis")
-            .call(yAxis);
-      }
+  group = svg.select("g")
+      .attr("transform", "translate(" + marginBar.left + "," + marginBar.top + ")");
+
+  //let keys = ["Cropland","Grazing Land","Forest Land","Fishing Water","Carbon/Urban Land"];
+  let keys = countryData.length>0?Object.keys(countryData[0]).filter(d=>d!=="type"&&d!="total"):[];
+
+  stack = d3.stack().keys(keys);
+  stackedData = stack(countryData);
+  console.log(stackedData);
+  color.domain(keys);
+
+  //x.domain(data.map(d=>d.Type));
+  x.domain(["Ecological footprint","Biocapacity"]);
+  y.domain([0, d3.max(countryData, d=>d.total)]);
+  
+  bars = group.selectAll(".bar")
+      .data(stackedData)
+      .enter().append("g")
+          .attr("fill", (d,i)=>{
+              return color(keys[i])})
+      .selectAll("rect")
+      .data(function(d) { 
+          return d;
+      })
+      .enter()
+      .append("rect")
+      .attr("x", d=>{ 
+          return x(d.data.type); 
+      })
+      .attr("y", d=>{ 
+          return y(d[1]); })
+      .attr("height", (d,i)=>{ 
+          return y(d[0])-y(d[1]); 
+      })
+      .attr("width", x.bandwidth())
+      .on("mouseover", (d,i)=>{
+          getCategory(d);
+      })
+      .on("mouseout", function(d) {
+      });	
+  
+  let xAxisGroup = 
+  group.append("g")
+      .attr("class", "x-axis axis")
+      .attr("transform", "translate(0," + heightBar + ")")
+      .call(xAxis);
+
+  //let yAxisGroup = 
+  group.append("g")
+      .attr("class", "y-axis axis")
+      .call(yAxis);
 }
 
 ecologyMap()

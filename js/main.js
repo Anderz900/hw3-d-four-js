@@ -59,9 +59,9 @@ Promise.all([
     //sconsole.log(categoryData);
     //console.log(susData);
 
-    d3.select("#stacked-bar-chart2")
-        .datum(categoryData)
-        .call(barChart);
+    // d3.select("#stacked-bar-chart2")
+    //     .datum(categoryData)
+    //     .call(barChart);
 
     d3.select("#stacked-area-chart")
         .datum(countryData, categoryData)

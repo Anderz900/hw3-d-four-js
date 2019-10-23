@@ -3,7 +3,7 @@ export default function Timeline(){
     // default size
   let margin ={top: 0, right: 0, bottom: 30, left: 60};
   let width = 800;
-  let height = 100;
+  let height = 60;
   
   
   // Scales and axes
