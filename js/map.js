@@ -187,6 +187,7 @@ function ecologyMap(){
     
             })
             .on('click', clicked)
+            
     })
 
     function clicked(d) {
@@ -216,7 +217,7 @@ function ecologyMap(){
         active.on('mouseout', function(d){
             active.style('fill', '#222222')
         })
-
+        
         var bounds = path.bounds(d),
             dx = bounds[1][0] - bounds[0][0],
             dy = bounds[1][1] - bounds[0][1],
