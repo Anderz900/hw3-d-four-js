@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Map Implementation</title>
+    <script src="./js/d3.min.js"></script>
+    <script src="https://kit.fontawesome.com/a9ff293408.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Roboto:300,300italic,700,700italic">
+
+
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.css">
+
+
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/milligram/1.3.0/milligram.css">
+</head>
+<style>
+    
+    h1{
+        margin-left: 4%;
+    }
+
+    ul{
+        list-style: none;
+        
+    }
+
+    #map-area{
+        margin-top: 1%;
+        color: #878787;
+    }
+    #info{
+        color: #CBCBCB;
+        text-align: left;
+        margin-top: 2%;
+        margin-right: 2%;
+        padding-left: 70px;
+    }
+    section{
+        height: 100vh;
+        overflow: hidden;
+    }
+    #countryName{
+        font-size: 60px;
+    }
+    #countrySus{
+        font-size: 40px;
+    }
+
+
+    li{
+        font-size: 20px;
+    }
+    i{
+        padding-right: 30px;
+    }
+    
+</style>
+<body>
+    <section id="map">
+        <div class="row">
+            <div class="column" id="map-area">
+                    <h1>Sustainability Exploration (per country)</h1>
+            </div>
+            <div class="column" id="info">
+                <ul>
+                    <li style="color: #0FFE61"><i class="fas fa-square fa-2x"></i>Positive Sustainability Margin</li>
+                    <li style="color: #FF4B4B"><i class="fas fa-square fa-2x" id="red"></i>Negative Sustainability Margin</li>
+                    <li style="color: #878787"><i class="fas fa-square fa-2x" id="gray"></i>No Data</li>
+                </ul>
+                <span id="countryName"></span>
+                <br>
+                <span id="countrySus"></span>
+
+                <div id="barChartArea">
+                    
+                </div>
+
+            </div>
+        </div>
+    </section>
+    <script src="./js/topojson.min.js"></script>
+    <script src="./js/map.js"></script>
+</body>
+</html>
