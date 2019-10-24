@@ -9,6 +9,7 @@ body {
 
 ul{
     list-style: none;
+
 }
 
 #map {
@@ -45,14 +46,14 @@ section{
     font-size: 28px;
 }
 
-
 li{
     font-size: 20px;
     float: left
 }
 i{
     padding-right: 32px;
-    
+    font-size: 12px;
+    font-family: sans-serif;
 }
 
 p{

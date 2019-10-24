@@ -379,6 +379,7 @@ function drawStackedBarChart(countryData) {
       .data(stackedData)
       .enter().append("g")
           .attr("fill", (d,i)=>{
+              console.log(keys[i], color(keys[i]));
               return color(keys[i])})
       .selectAll("rect")
       .data(function(d) { 
@@ -411,6 +412,8 @@ function drawStackedBarChart(countryData) {
   group.append("g")
       .attr("class", "y-axis axis")
       .call(yAxis);
+
+  
 }
 
 ecologyMap()
