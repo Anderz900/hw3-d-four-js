@@ -18,8 +18,8 @@ let marginBar={
     bottom: 60
 };
 
-let widthBar = 320;
-let heightBar = 340; 
+let widthBar = 260;
+let heightBar = 260; 
 
 let color = d3.scaleOrdinal(d3.schemeCategory10);
 //let selectCountry = d3.select("#country-select").on("change", updateVisualization);;
@@ -64,14 +64,15 @@ function ecologyMap(){
 
     d3.select('body').style('background', '#181818')
 
-    let width = 1000,
-        height = 800,
+    let width = 800,
+        height = 640,
         active = d3.select(null)
 
     let svg = d3.select('#map-area').append('svg')
         .attr('width', width)
         .attr('height', height)
         .on('click', stopped, true)
+
 
     svg.append('rect')
         .attr('class', 'background')
@@ -82,7 +83,7 @@ function ecologyMap(){
 
     let g = svg.append('g')
 
-    svg.attr('transform', 'translate(0, -20)')
+    svg.attr('transform', 'translate(0, -80)')
 
     let zoom = d3.zoom()
             .scaleExtent([1, 8])
@@ -138,8 +139,8 @@ function ecologyMap(){
 
         let projection = d3.geoMercator()
             .translate([width/2, height/2+100])
-            .center([0, 0])
-                
+            .center([0, -15])
+            .scale(120)
         
         path = d3.geoPath()
         .projection(projection)
@@ -162,7 +163,7 @@ function ecologyMap(){
                     return divSchemeNeg(susData[country])
                 }
                 else{
-                    return '#333333'
+                    return '#878787'
                 }
             })
             .on('mouseout',function(){
@@ -205,17 +206,29 @@ function ecologyMap(){
         let countrySustainability = susData[d.properties.name];
         
         // document.querySelector('#blurb').innerHTML = ''
-        d3.select('#blurb')
-            .transition()
-            .duration(1500)
-            .text('')
+        
+        document.querySelector('#keyArea').innerHTML = '<li><i class="fas fa-square fa-1.4x" style="color: #1f77b4"></i>Cropland</li><li><i class="fas fa-square fa-1.4x" style="color: #ff7f0e"></i>Grazing Land</li><li><i class="fas fa-square fa-1.4x" style="color: #2ca02c"></i>Forestland</li><li><i class="fas fa-square fa-1.4x" style="color: #d62728"></i>Fishing Water</li><li><i class="fas fa-square fa-1.4x" style="color: #9467bd"></i>Carbon/Urban</li>'
+
         document.querySelector('#countryName').innerHTML = d.properties.name
+        
+        if(susData[country] < 0){
+            document.querySelector('#countryName').setAttribute('style', 'color: #FF3838')
+        }
+        else if(susData[country] > 0){
+            document.querySelector('#countryName').setAttribute('style', 'color: #88FF86')
+        }
+        else{
+            document.querySelector('#countryName').setAttribute('style', 'color: #fff')
+        }
+
         document.querySelector('#countrySus').innerHTML = `Sustainability Margin: ${countrySustainability}`
         if(countrySustainability < 0){
-            document.querySelector('#countrySus').setAttribute('style', `color:${divSchemeNeg(susData[d.properties.name])}`)
+            // document.querySelector('#countrySus').setAttribute('style', `color:${divSchemeNeg(susData[d.properties.name])}`)
+            document.querySelector('#countrySus').setAttribute('style', 'color: #FF3838')
         }
         else if(countrySustainability > 0){
-            document.querySelector('#countrySus').setAttribute('style', `color:${divSchemePos(susData[d.properties.name])}`)
+            // document.querySelector('#countrySus').setAttribute('style', `color:${divSchemePos(susData[d.properties.name])}`)
+            document.querySelector('#countrySus').setAttribute('style', 'color: #88FF86')
         }
         else{
             document.querySelector('#countrySus').setAttribute('style', 'color:#181818')
@@ -245,12 +258,11 @@ function ecologyMap(){
       
       function reset() {
 
-        d3.select('#blurb')
-            .transition()
-            .text("A country's sustainability margin refers to the difference between its biocapacity and carbon dioxide emmisions. A country with a positive margin emits less CO2 than it can handle (and vice versa). Click on the countries to explore their ecological data")
+        document.querySelector('#countryName').setAttribute('style', 'color: #fff')
+        document.querySelector('#keyArea').innerHTML = " "
 
         document.querySelector('#stacked-bar-chart').innerHTML = ''
-        document.querySelector('#countryName').innerHTML = ''
+        document.querySelector('#countryName').innerHTML = 'None'
         document.querySelector('#countrySus').innerHTML = ''
 
         svg.selectAll('path').style('fill', function(d){
@@ -412,8 +424,6 @@ function drawStackedBarChart(countryData) {
   group.append("g")
       .attr("class", "y-axis axis")
       .call(yAxis);
-
-  
 }
 
 ecologyMap()

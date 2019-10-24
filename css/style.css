@@ -1,6 +1,9 @@
 h1{
     margin-left: 4%;
-    color: #EEEEEE
+    color: #fff;
+    font-weight: bold;
+    font-size: 45px;
+    margin-top: 1%;
 }
 
 body {
@@ -9,7 +12,34 @@ body {
 
 ul{
     list-style: none;
+    margin-left: 4%;
+    transform: translate(0, -30px);
+}
 
+#nodata{
+    padding-left: 150px;
+}
+
+#stacked-bar-chart{
+    transform: translate(-30px, 0);
+}
+
+#key{
+    position: absolute;
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    font-size: 12px;
+    width: 600px;
+    margin-left: 4%;
+    margin-top: 5%;
+}
+
+#keyArea{
+    font-size: 12px;
+}
+
+#key i{
+    padding-right: 4px
 }
 
 #map {
@@ -18,10 +48,12 @@ ul{
 }
 
 #blurb{
-    position: sticky;
-    font-size: 20px;
+    padding-top: 10px;
+    margin-left: 4%;
+    font-size: 16px;
     transform: translate(0, -20px);
     font-weight: lighter;
+    color: #fff;
 }
 
 #map-area{
@@ -35,13 +67,35 @@ ul{
     margin-right: 1%;
     padding-left: 70px;
 }
+
+#info li{
+    margin-left: -10%;
+    font-size: 12px;
+    
+}
+
+div #info{
+    transform: translate(-60px, 0);
+}
+
+#info ul{
+    transform: translate(20px, 50px)
+}
+
+
 section{
     height: 100vh;
     overflow: hidden;
 }
 #countryName{
-    font-size: 36px;
+    font-size: 45px;
 }
+
+#selectedCountry{
+    font-size: 45px;
+    padding-right: 4px;
+}
+
 #countrySus{
     font-size: 28px;
 }
@@ -60,16 +114,23 @@ p{
     padding-top: 10px;
     display: inline-block;
     left: 0;
-    font-size: 15px;
+    font-size: 12px;
+    color: #fff
     
 }
+
+#move{
+    margin-left: 20%;
+}
+
 #low{
-    padding-right: 125px;
+    padding-right: 132px;
 }
 #high{
     /* margin-right:100px; */
-    padding-right: 0px;
+    padding-right: 110px;
 }
 #nodata p{
-    font-size: 15px;
+    font-size: 16px;
 }
+

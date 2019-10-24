@@ -16,51 +16,54 @@
 <body>
 	<section id="map">
         <div class="row">
-            <div class="column" id="map-area">
+            <div class="column" id="map-area" class="abc">
                     <h1>2016 Country Sustainability Exploration</h1>
+                    <p id="blurb">
+                        A country's sustainability margin refers to the difference between its biocapacity and ecological footprint. A country with a negative sustainability margin consumes more resources than it produces, deeming it unsustainable. Click on the countries to explore their ecological data.
+                    </p>
+                    <ul>
+                        <i class="fas fa-circle fa-1x" style="color: #760000"></i>
+                        <i class="fas fa-circle fa-1x" style="color: rgb(197, 0, 0)"></i>
+                        <i class="fas fa-circle fa-1x" style="color: rgb(255, 111, 111)"></i>
+                        <i class="fas fa-circle fa-1x" style="color: #81FF98"></i>
+                        <i class="fas fa-circle fa-1x" style="color: rgb(0, 207, 93)"></i>
+                        <i class="fas fa-circle fa-1x" style="color:rgb(0, 68, 22)"></i>
+                        <i class="fas fa-circle fa-1x" id="nodata" style="color: #878787"></i>
+                        <br>
+                        <p id="low">Unsustainable</p>
+                        <p id="high">Sustainable</p>
+                        <p>Data Unavailable</p>
+                     
+                        
+                    </ul>
             </div>
             
             <div class="column" id="info">
-                <ul id="key">
-                    <i class="fas fa-circle fa-2x" style="color: #760000"></i>
-                    <i class="fas fa-circle fa-2x" style="color: rgb(197, 0, 0)"></i>
-                    <i class="fas fa-circle fa-2x" style="color: rgb(255, 111, 111)"></i>
-                    <i class="fas fa-circle fa-2x" style="color: #81FF98"></i>
-                    <i class="fas fa-circle fa-2x" style="color: rgb(0, 207, 93)"></i>
-                    <i class="fas fa-circle fa-2x" style="color:rgb(8, 85, 33)"></i>
-					<br>
-                    <p id="low">Low Sustainability</p>
-                    <p id="high">High Sustainability</p>
-                    <br>
-                    <div id="nodata">
-					<i class="fas fa-circle fa-2x" id="nodata" style="color: ##222222"></i> 
-					<br>
-					<p>No Data</p>
-                    </div>
-				</ul>
-				<p id="blurb">
-					A country's sustainability margin refers to the difference between its biocapacity and carbon dioxide emmisions. A country with a positive margin emits less CO2 than it can handle (and vice versa). Click on the countries to explore their ecological data
-				</p>
-                <span id="countryName"></span>
+                <div id="move">
+                <span id="selectedCountry">Selected Country: </span><span id="countryName">None</span>
                 <br>
                 <span id="countrySus"></span>
+                <div class="row">
+                    <div class="column">
+                        <div id="info">
+                            <ul id="keyArea">
+                                        
+                            </ul>
+                        </div>
                 <div id="bar-chart">
-                    <div id="info">
-                        <ul id="key">
-                            <i class="fas fa-square" style="color: #1f77b4">Cropland</i>
-                            <i class="fas fa-square" style="color: #ff7f0e">Grazing land</i>
-                            <i class="fas fa-square" style="color: #2ca02c">Forest land</i>
-                            <i class="fas fa-square" style="color: #d62728">Fishing water</i>
-                            <i class="fas fa-square" style="color: #9467bd">Carbon/Urban</i>
-                        </ul>
-                    </div>
+                    </div></div>
+                    <div class="column">
+                    
+               
+                </div>
+
                     <div id="stacked-bar-chart"></div>
                 </div>
 				
 				<!-- <div id="stacked-area-chart"></div>
 				<div id="timeline"></div> -->
                 </div>
-
+            </div>
             </div>
         </div>
     </section>
