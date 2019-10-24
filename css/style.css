@@ -16,6 +16,13 @@ ul{
     margin-right: 40px;
 }
 
+#blurb{
+    position: sticky;
+    font-size: 20px;
+    transform: translate(0, -20px);
+    font-weight: lighter;
+}
+
 #map-area{
     margin-top: 1%;
     color: #878787;
@@ -44,7 +51,8 @@ li{
     float: left
 }
 i{
-    padding-right: 30px;
+    padding-right: 32px;
+    
 }
 
 p{
@@ -55,12 +63,12 @@ p{
     
 }
 #low{
-    padding-right: 115px;
+    padding-right: 125px;
 }
 #high{
     /* margin-right:100px; */
     padding-right: 0px;
 }
 #nodata p{
-    font-size: 14px;
+    font-size: 15px;
 }

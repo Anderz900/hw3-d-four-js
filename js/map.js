@@ -18,8 +18,8 @@ let marginBar={
     bottom: 60
 };
 
-let widthBar = 280;
-let heightBar = 300; 
+let widthBar = 320;
+let heightBar = 340; 
 
 let color = d3.scaleOrdinal(d3.schemeCategory10);
 //let selectCountry = d3.select("#country-select").on("change", updateVisualization);;
@@ -162,14 +162,15 @@ function ecologyMap(){
                     return divSchemeNeg(susData[country])
                 }
                 else{
-                    return '#878787'
+                    return '#333333'
                 }
             })
             .on('mouseout',function(){
                 d3.select(this)
                 .transition()
+                .style('stroke', 'none')
                 .style('fill', (d)=>{
-                    let country = d.properties.name
+                let country = d.properties.name
                 
                 /*  Go back to js object and get the value for each key */
                 if(susData[country] > 0){
@@ -186,18 +187,28 @@ function ecologyMap(){
                 .duration(5100)
     
             })
+            // .on('mouseover', function(){
+            //     d3.select(this)
+            //     .transition()
+            //     .style('stroke', '#fff')
+            // })
             .on('click', clicked)
             
     })
 
     function clicked(d) {
 
+
         let country = d.properties.name;
         handleCoordination(country);
     
         let countrySustainability = susData[d.properties.name];
         
-
+        // document.querySelector('#blurb').innerHTML = ''
+        d3.select('#blurb')
+            .transition()
+            .duration(1500)
+            .text('')
         document.querySelector('#countryName').innerHTML = d.properties.name
         document.querySelector('#countrySus').innerHTML = `Sustainability Margin: ${countrySustainability}`
         if(countrySustainability < 0){
@@ -213,9 +224,9 @@ function ecologyMap(){
         if (active.node() === this) return reset();
         active.classed("active", false);
         active = d3.select(this).classed("active", true);
-        active.style('fill', '#222222')
+        active.style('stroke', '#fff')
         active.on('mouseout', function(d){
-            active.style('fill', '#222222')
+            active.style('stroke', '#fff')
         })
         
         var bounds = path.bounds(d),
@@ -233,6 +244,10 @@ function ecologyMap(){
       }
       
       function reset() {
+
+        d3.select('#blurb')
+            .transition()
+            .text("A country's sustainability margin refers to the difference between its biocapacity and carbon dioxide emmisions. A country with a positive margin emits less CO2 than it can handle (and vice versa). Click on the countries to explore their ecological data")
 
         document.querySelector('#stacked-bar-chart').innerHTML = ''
         document.querySelector('#countryName').innerHTML = ''
@@ -252,8 +267,10 @@ function ecologyMap(){
                     return '#878787'
                 }
         })
+        .attr('stroke', 'rgba(0, 0, 0, .4')
 
-        g.selectAll('path').style('fill', function(d){
+        g.selectAll('path')
+        .style('fill', function(d){
             let country = d.properties.name
                 
                 /*  Go back to js object and get the value for each key */
@@ -267,7 +284,8 @@ function ecologyMap(){
                     return '#878787'
                 }
         })
-
+        .style('stroke', 'None')
+        
 
         .transition()
         active.classed("active", false);
@@ -356,6 +374,7 @@ function drawStackedBarChart(countryData) {
   x.domain(["Ecological footprint","Biocapacity"]);
   y.domain([0, d3.max(countryData, d=>d.total)]);
   
+
   bars = group.selectAll(".bar")
       .data(stackedData)
       .enter().append("g")
