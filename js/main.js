@@ -60,19 +60,51 @@ Promise.all([
 
 //start here
 //loads country names into search bar
+// function countryList(){
+//     let countrylist = Object.keys(countryData[0]).slice(1);
+//     console.log(countrylist[0])
+//     d3.select('datalist').selectAll('option')
+//         .data(countrylist, function(d){
+//             return d;
+//         })
+//         .enter()
+//         .append('option')
+//         .attr('value', function(d){
+//             return d;
+//         })
+// }
+
 function countryList(){
     let countrylist = Object.keys(countryData[0]).slice(1);
-    console.log(countrylist[0]);
-    d3.select('datalist').selectAll('option')
-        .data(countrylist, function(d){
-            return d;
-        })
-        .enter()
-        .append('option')
-        .attr('value', function(d){
-            return d;
-        })
+    d3.select("#myDropdown").selectAll("a").data(countrylist, function(d){
+        return d;
+    })
+    .enter()
+    .append("option")
+    .attr('id', 'countrybutton')
+    .text((d)=>d)
+    
+
+    
 }
+
+
+
+function filterFunction() {
+    var input, filter, ul, li, a, i;
+    input = document.getElementById("myInput");
+    filter = input.value.toUpperCase();
+    div = document.getElementById("myDropdown");
+    a = div.getElementsByTagName("a");
+    for (i = 0; i < a.length; i++) {
+      txtValue = a[i].textContent || a[i].innerText;
+      if (txtValue.toUpperCase().indexOf(filter) > -1) {
+        a[i].style.display = "";
+      } else {
+        a[i].style.display = "none";
+      }
+    }
+  }
 
 
 //note that this event listener also calls onSelectCountry,
@@ -92,6 +124,11 @@ d3.select('#selection')
         let e = document.getElementById("selection");
         e.value = '';
     })
+
+document.querySelectorAll('#country').addEventListener('click', function(){
+    console.log("Hello")
+})
+    
 
 
 
