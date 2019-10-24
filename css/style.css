@@ -6,6 +6,14 @@ h1{
     margin-top: 1%;
 }
 
+#about {
+    margin-left: 0%;
+}
+
+h2 {
+    color: #ffffff;
+}
+
 body {
     background: #181818;
 }
@@ -16,12 +24,22 @@ ul{
     transform: translate(0, -30px);
 }
 
+#about-link {
+    margin-left: 4%;
+    margin-bottom: 10%;
+}
+
 #nodata{
     padding-left: 150px;
 }
 
+/* #stacked-bar-chart{
+    margin-top: 10%;
+    transform: translate(-50px, 0);
+} */
+
 #stacked-bar-chart{
-    transform: translate(-30px, 0);
+    transform: translate(-95px, 0);
 }
 
 #key{
@@ -48,7 +66,7 @@ ul{
 }
 
 #blurb{
-    padding-top: 10px;
+    margin-top: 25px;
     margin-left: 4%;
     font-size: 16px;
     transform: translate(0, -20px);
@@ -60,6 +78,7 @@ ul{
     margin-top: 1%;
     color: #878787;
 }
+
 #info{
     color: #CBCBCB;
     text-align: left;
@@ -68,27 +87,46 @@ ul{
     padding-left: 70px;
 }
 
+/* #info{
+    color: #CBCBCB;
+    text-align: left;
+    margin-top: 2%;
+    margin-right: 1%;
+    padding-left: 50px;
+} */
+
+/* #info li{
+    margin-left: 90%;
+    font-size: 12px; 
+} */
+
 #info li{
     margin-left: -10%;
-    font-size: 12px;
-    
+    font-size: 12px; 
 }
 
-div #info{
-    transform: translate(-60px, 0);
+/* div #info{
+    transform: translate(-80px, 0);
 }
 
 #info ul{
-    transform: translate(20px, 50px)
+    transform: translate(0px, 50px)
+} */
+
+div #info{
+    transform: translate(-75px, 0);
 }
 
+#info ul{
+    transform: translate(10px, 50px)
+}
 
 section{
     height: 100vh;
     overflow: hidden;
 }
 #countryName{
-    font-size: 45px;
+    font-size: 30px;
 }
 
 #selectedCountry{
