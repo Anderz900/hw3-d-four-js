@@ -80,17 +80,13 @@
 				<h2></h2>
 				
 				<!-- Start -->
-				<form>
-					search <input type="text" id="realtxt" onkeyup="javascript:searchSel();"/>
-					  <select id="realitems">
-						<option value="">select...</option>
-						<option value="1">Power hungry</option>
-						<option value="2">Super man</option>
-						<option value="3">Hyperactive</option>
-						<option value="4">Bored</option>
-						<option value="5">Human</option>
-					  </select>
-					</form>
+				<div class="dropdown">
+					<button onclick="myFunction()" class="dropbtn">Dropdown</button>
+					<div id="myDropdown" class="dropdown-content" style='height: 300px;'>
+					  <input type="text" placeholder="Search.." id="myInput" onkeyup="filterFunction()">
+					  
+					</div>
+				  </div>
 
 				  <script>
 					/* When the user clicks on the button,
