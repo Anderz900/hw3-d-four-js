@@ -76,13 +76,14 @@ Promise.all([
 
 function countryList(){
     let countrylist = Object.keys(countryData[0]).slice(1);
-    d3.select("#myDropdown").selectAll("a").data(countrylist, function(d){
+    console.log(document.getElementById("myDropdown"));
+    d3.select("#myDropdown").selectAll("option").data(countrylist, function(d){
         return d;
     })
     .enter()
     .append("option")
-    .attr('id', 'countrybutton')
-    .text((d)=>d)
+    .text(function(d){return d;});
+    
     
 
     
@@ -110,9 +111,9 @@ function filterFunction() {
 //note that this event listener also calls onSelectCountry,
 //which is intended for clicking on the stacked area chart
 //this is probably where problems are coming from
-d3.select("#selection")
-    .on("input", function(){
-        let e = document.getElementById("selection");
+d3.select("#wemadeit")
+    .on("click", function(){
+        let e = document.getElementById("myDropdown");
         //let e = document.querySelector('#selection');
         //let selectedcountry = e.options[e.selectedIndex]//.value;
         console.log('-------- search box',  e.value);
@@ -125,9 +126,7 @@ d3.select('#selection')
         e.value = '';
     })
 
-document.querySelectorAll('#country').addEventListener('click', function(){
-    console.log("Hello")
-})
+
     
 
 
