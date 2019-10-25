@@ -168,13 +168,13 @@ function ecologyMap(){
 
 
         
-        divSchemePos = d3.scaleDiverging()
-            .domain([0, 1, maxSus-90])
-            .interpolator(d3.interpolateGreens)
+        divSchemePos = d3.scaleLinear()
+        .domain([0, maxSus/15, maxSus])
+        .range(['#005118' ,'#00BE39'])
 
-        divSchemeNeg = d3.scaleDiverging()
-            .domain([0, -1, minSus])
-            .interpolator(d3.interpolateReds)
+        divSchemeNeg = d3.scaleLinear()
+        .domain([0, minSus/2.5 ,minSus])
+        .range(['#610000','#FF0000'])
             
 
         let projection = d3.geoMercator()

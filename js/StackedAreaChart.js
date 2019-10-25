@@ -171,7 +171,7 @@ export default function StackedAreaChart(){
     };
 
     function handleClick(d,i){
-		listeners.apply("select", this, [d.key,d.index]);
+		console.log('Hello World')
 	}
 
     return chart
