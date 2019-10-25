@@ -257,6 +257,7 @@ function ecologyMap(){
             d3.select("#wemadeit")
             .on("click", function(){
                 let e = document.getElementById("myDropdown");
+                console.log(e.value);
                 //let e = document.querySelector('#selection');
                 //let selectedcountry = e.options[e.selectedIndex]//.value;
                 console.log('-------- search box',  e.value);
@@ -264,12 +265,8 @@ function ecologyMap(){
                 console.log(list2);
                 let i;
                 for (let j = 0; j< list2.length; j++){
-                    if (e.value == list2[j]){ i= j;
-                        console.log("jackpot");
-                        }
+                    if (e.value == list2[j]){i = j;}
                 }
-                
-                
                 clicked(list1[i]);
             })
     
@@ -325,13 +322,23 @@ function ecologyMap(){
 
         console.log(d);
         let country = d.properties.name;
-        // if(prevSelected == null){
-        //     selectedCountry = country;
-        // } else {
-        //     if(selectedCountry == country) {
-        //         return;
-        //     }
-        // }
+        console.log(prevSelected);
+        if (prevSelected == null){
+            prevSelected = country;
+            selectedCountry = country;
+        } else {
+            if (selectedCountry == country) {
+                console.log(selectedCountry);
+                return;
+            } else {
+                prevSelected = selectedCountry;
+                selectedCountry = country;
+            }
+        }
+    
+        
+
+        
         
         
         handleCoordination(country);

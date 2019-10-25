@@ -115,9 +115,7 @@ div #info{
     transform: translate(20px, 50px)
 }
 
-option{
-    display: none;
-}
+
 
 section{
     height: 100vh;
