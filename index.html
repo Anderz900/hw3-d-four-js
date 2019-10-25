@@ -148,24 +148,25 @@
                         </div>
                         <div id="bar-chart">
                     </div> -->
-                    <div class="column">
-                        <div id="info">
-                            
-                        </div>
-                        <div id="bar-chart">
-                    </div>
-                    <div id="stacked-area-chart" style='position:relative;'></div>
+                    <div class="column" id="charts-area">
+                        <div id="info"></div>
+                        <div id="bar-chart"></div>
+                        
+                        <div id="stacked-area-chart" style='position:relative;'></div>
                     </div>
                     <div class="column">
                         
                         <div id="stacked-bar-chart"></div>
                     </div>
-                    
-                    <ul id="keyArea">
-                                        
+                    <div id="info">
+                        <ul id="keyArea">
+                                            
                         </ul>
+
+                    </div>
                         
                 </div>
+
 				
             </div>
             </div>
@@ -198,11 +199,11 @@
                     }
                     if (input == '')
                     output[0].selected = true;
-                    }
-                    function formsubmit(e){
-			e.preventDefault();
-			return false;
-		}
+            }
+            function formsubmit(e){
+			    e.preventDefault();
+			    return false;
+		    }
             </script>
 </body>
 </html>

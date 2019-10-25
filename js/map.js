@@ -8,6 +8,7 @@ var imported = document.createElement('script');
 
 document.head.appendChild(imported);
 
+
 let susData
 let divSchemeNeg
 let divSchemePos
@@ -68,11 +69,12 @@ let areaYearData, areaCountryData;
 let filterCountry, filterRange;
 let parseDate = d3.timeParse("%Y");
 
-
+let areaChart;
 
 function ecologyMap(){
-    let areaChart = StackedAreaChart()
-    .on("select", onSelectCountry);
+
+    areaChart = StackedAreaChart()
+        .on("select", onSelectCountry);
     let timeline = Timeline()
     .on("brushed", onBrushRange);
     d3.select('body').style('background', '#181818')
@@ -238,9 +240,9 @@ function ecologyMap(){
             // })
             .on('click', clicked)
 
-        d3.select("#stacked-area-chart")
-            .datum(areaCountryData)
-            .call(areaChart);
+        // d3.select("#stacked-area-chart")
+        //     .datum(areaCountryData)
+        //     .call(areaChart);
     
         d3.select("#timeline")
             .datum(areaYearData)
@@ -322,6 +324,15 @@ function ecologyMap(){
         let country = d.properties.name;
         handleCoordination(country);
         onSelectCountry(country);
+
+        let filtered = filterCountryData(filterCountry, filterRange);
+        d3.select("#stacked-area-chart")
+            .datum(filtered)
+            .call(areaChart);
+
+        // d3.select("#stacked-area-chart")
+        //     .datum(areaCountryData)
+        //     .call(areaChart);
     
         let countrySustainability = susData[d.properties.name];
         
@@ -382,6 +393,7 @@ function ecologyMap(){
         document.querySelector('#keyArea').innerHTML = " "
 
         document.querySelector('#stacked-bar-chart').innerHTML = ''
+        document.querySelector('#stacked-area-chart').innerHTML = ''
         document.querySelector('#countryName').innerHTML = 'None'
         document.querySelector('#countrySus').innerHTML = ''
 
@@ -525,11 +537,12 @@ function drawStackedBarChart(countryData) {
       .attr("y", d=>{ 
           return y(d[1]); })
       .attr("height", (d,i)=>{ 
+          console.log(d);
           return y(d[0])-y(d[1]); 
       })
       .attr("width", x.bandwidth())
       .on("mouseover", (d,i)=>{
-          getCategory(d);
+          //getCategory(d);
       })
       .on("mouseout", function(d) {
       });	
@@ -544,6 +557,13 @@ function drawStackedBarChart(countryData) {
   group.append("g")
       .attr("class", "y-axis axis")
       .call(yAxis);
+
+  group.append("g")
+      .attr("class", "bar-title")
+      .append("text")
+        .attr("transform", "translate(20," + -20 + ")")
+        .attr("fill", "#ddd")
+        .text("Sustainability Breakdown Chart");
 }
 
 ecologyMap()
