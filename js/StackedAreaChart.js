@@ -10,7 +10,7 @@ export default function StackedAreaChart(){
         bottom: 60
     };
 
-    let width=325;
+    //let width=325;
     let width=280;
     // let height=320;
     let height = 350;
@@ -145,7 +145,7 @@ export default function StackedAreaChart(){
             group.append("g")
                 .attr("class", "chart-title")
                 .append("text")
-                    .attr("transform", "translate(0,0)")
+                    .attr("transform", "translate(0,-10px)")
                     .attr("fill", "#ddd")
                     .text("Carbon Emissions from 1970-2017");
         })

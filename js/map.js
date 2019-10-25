@@ -43,6 +43,7 @@ let yAxis = d3.axisLeft()
 
 let selectedCountry;
 let prevSelected = null;
+let count = 0;
 
 let footprint = {
     type: "Ecological footprint",
@@ -319,18 +320,26 @@ function ecologyMap(){
     }
 
     function clicked(d) {
-
+        console.log(count);
         console.log(d);
         let country = d.properties.name;
         console.log(prevSelected);
         if (prevSelected == null){
             prevSelected = country;
             selectedCountry = country;
+            count++;
         } else {
             if (selectedCountry == country) {
                 console.log(selectedCountry);
+                reset();
+                if(count == 2) {
+                    count = 0;
+                    clicked(d);
+                }
+                count++;
                 return;
             } else {
+                count = 0;
                 prevSelected = selectedCountry;
                 selectedCountry = country;
             }
