@@ -22,7 +22,7 @@ let marginBar={
     bottom: 60
 };
 
-let widthBar = 260;
+let widthBar = 240;
 let heightBar = 260; 
 
 let color = d3.scaleOrdinal(d3.schemeCategory10);
@@ -366,7 +366,7 @@ function ecologyMap(){
         
         // document.querySelector('#blurb').innerHTML = ''
         
-        document.querySelector('#keyArea').innerHTML = '<li><i class="fas fa-square fa-1.4x" style="color: #1f77b4"></i>Cropland</li><li><i class="fas fa-square fa-1.4x" style="color: #ff7f0e"></i><br>Grazing Land</li><li><i class="fas fa-square fa-1.4x" style="color: #2ca02c"></i>Forestland</li><li><i class="fas fa-square fa-1.4x" style="color: #d62728"></i><br>Fishing Water</li><li><i class="fas fa-square fa-1.4x" style="color: #9467bd"></i>Carbon/Urban</li>'
+        document.querySelector('#keyArea').innerHTML = '<li><i class="fas fa-square fa-1.4x" style="color: #1f77b4"></i><br>Cropland</li><li><i class="fas fa-square fa-1.4x" style="color: #ff7f0e"></i><br>Grazing Land</li><li><i class="fas fa-square fa-1.4x" style="color: #2ca02c"></i><br>Forestland</li><li><i class="fas fa-square fa-1.4x" style="color: #d62728"></i><br>Fishing Water</li><li><i class="fas fa-square fa-1.4x" style="color: #9467bd"></i><br>Carbon/Urban</li>'
 
         document.querySelector('#countryName').innerHTML = d.properties.name
         
@@ -581,17 +581,18 @@ function drawStackedBarChart(countryData) {
       .attr("transform", "translate(0," + heightBar + ")")
       .call(xAxis);
 
+
   //let yAxisGroup = 
   group.append("g")
       .attr("class", "y-axis axis")
       .call(yAxis);
 
   group.append("g")
-      .attr("class", "bar-title")
       .append("text")
         .attr("transform", "translate(20," + -20 + ")")
         .attr("fill", "#ddd")
-        .text("Sustainability Breakdown Chart");
+        .text("Sustainability Breakdown")
+        .style('font-size', '16px')
 
 }
 

@@ -27,8 +27,10 @@ form{
     margin-left: 15%;
 }
 
+
+
 #stacked-bar-chart{
-    transform: translate(0, 40px);
+    transform: translate(-50px, 50px);
     font-size: 16px;
     margin-left: 15%;
     margin-top: 1.5%;
@@ -43,28 +45,42 @@ form{
 
 #stacked-area-chart{
     margin-bottom: 4%;
-    transform: translate(0, 40px);
     margin-left: 25%;
     font-size: 16px;
     color: #ddd;
+    margin-bottom: 15%;
+    transform: translate(0, 60px);
 }
 
-#key{
-    position: absolute;
+
+
+#keyArea{
+    display: grid;
+    width: 200px;
+    height: 20px;
+    list-style: none;
+    transform: translate(80px, 0px);
+}
+
+#keyArea li{
+    text-decoration: none;
+    transform: translate(655px, 70px);
+}
+
+/* #key{
     display: grid;
     grid-template-columns: repeat(1, 1fr);
     font-size: 12px;
-    width: 600px;
-    margin-left: 4%;
-    margin-top: 5%;
 }
 
-#keyArea{
-    font-size: 12px;
-}
 
 #key i{
     padding-right: 4px
+} */
+
+#keyArea{
+    position: absolute;
+    transform: translate(0px, -200px);
 }
 
 #map {
@@ -98,7 +114,7 @@ form{
     color: #CBCBCB;
     text-align: left;
     margin-top: 2%;
-    padding-left: 100px;
+
     /* position: relative; */
 }
 
@@ -114,10 +130,6 @@ div #info{
 
 #info ul{
     transform: translate(20px, 50px)
-}
-
-option{
-    
 }
 
 section{

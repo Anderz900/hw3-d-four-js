@@ -143,11 +143,13 @@ export default function StackedAreaChart(){
             group.select('.y-axis').call(yAxis)
 
             group.append("g")
-                .attr("class", "chart-title")
+             
                 .append("text")
-                    .attr("transform", "translate(0,-10px)")
+                    .attr("transform", "translate(0,0)")
                     .attr("fill", "#ddd")
-                    .text("Carbon Emissions from 1970-2017");
+                    .text("Carbon Emissions(1970-2017)")
+                    .style('transform', 'translate(0, -27px)')
+                    .style('font-size', '16px')
         })
     }
 
