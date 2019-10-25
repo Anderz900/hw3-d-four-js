@@ -11,6 +11,7 @@ export default function StackedAreaChart(){
     };
 
     let width=325;
+    let width=280;
     // let height=320;
     let height = 350;
 
@@ -19,7 +20,7 @@ export default function StackedAreaChart(){
     let y = d3.scaleLinear();
     let color = d3.scaleOrdinal(d3.schemeCategory10);
     let yAxis = d3.axisLeft().scale(y);
-    let xAxis = d3.axisBottom().scale(x);
+    let xAxis = d3.axisBottom().scale(x).ticks(6);
     let listeners = d3.dispatch('select');
 
     let stack, stackedData, area, tooltip;
@@ -144,7 +145,7 @@ export default function StackedAreaChart(){
             group.append("g")
                 .attr("class", "chart-title")
                 .append("text")
-                    .attr("transform", "translate(0," + -20 + ")")
+                    .attr("transform", "translate(0,0)")
                     .attr("fill", "#ddd")
                     .text("Carbon Emissions from 1970-2017");
         })

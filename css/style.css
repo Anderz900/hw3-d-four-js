@@ -37,7 +37,7 @@ form{
 
 /* #stacked-bar-chart{
     margin-bottom: 4%;
-    transform: translate(0, 10px)
+    transform: translate(0, 35px)
     
 } */
 
@@ -52,7 +52,7 @@ form{
 #key{
     position: absolute;
     display: grid;
-    grid-template-columns: repeat(6, 1fr);
+    grid-template-columns: repeat(1, 1fr);
     font-size: 12px;
     width: 600px;
     margin-left: 4%;
@@ -89,6 +89,7 @@ form{
 #selectedCountry{
     font-size: 50px;
     margin-left: 20%;
+    position: fix;
 }
 
 
@@ -115,14 +116,16 @@ div #info{
     transform: translate(20px, 50px)
 }
 
-
+option{
+    
+}
 
 section{
     height: 100vh;
     overflow: hidden;
 }
 #countryName{
-    font-size: 40px;
+    font-size: 48px;
     margin-left: 14%;
 }
 
