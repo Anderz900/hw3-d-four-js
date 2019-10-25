@@ -8,8 +8,8 @@ export default function StackedAreaChart(){
         bottom: 60
     };
 
-    let width=800;
-    let height=400;
+    let width=300;
+    let height=320;
 
     // initialize axis variables to be updated in real time
     let x = d3.scaleTime();
@@ -85,7 +85,6 @@ export default function StackedAreaChart(){
             let group = svg.select("g")
                 .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 
-            tooltip = group.select('.focus')
 
             let countries = data.length>0?Object.keys(data[0]).filter(d=>d!=="Year"):[];
             
@@ -128,8 +127,6 @@ export default function StackedAreaChart(){
                 .style('fill', (d, i)=>color(countries[i]))
                 .attr('d', d=>area(d))
                 .on("click", handleClick)
-                .on("mouseover", (d,i)=>tooltip.text(countries[i]))
-                .on("mouseout", d=>tooltip.text(""));
 
             countryStacks.exit().remove()
 

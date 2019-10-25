@@ -25,6 +25,18 @@
               background-color: #3e8e41;
             }
             
+            #realtxt{
+                color: #000;
+                background-image: url(search.png);
+                background-position: left;
+                font-size: 21px;
+                background-repeat: no-repeat;
+                background-size: 18%;
+                background-color: #fff;
+                text-indent: 44px;
+                
+            }
+
             #myInput {
               box-sizing: border-box;
               /* background-image: url('searchicon.png'); */
@@ -34,6 +46,7 @@
               padding: 14px 20px 12px 45px;
               border: none;
               border-bottom: 1px solid #ddd;
+              margin-left: 20%;
             }
             
             #myInput:focus {outline: 3px solid #ddd;}
@@ -41,14 +54,26 @@
             .dropdown {
               position: relative;
               display: inline-block;
+              background-color: #fff;
             }
             
+            #myDropdown{
+                background-image: url(arrow.png);
+                background-position: left;
+                font-size: 21px;
+                background-repeat: no-repeat;
+                background-size: 18%;
+                background-color: #fff;
+                color: #000;
+                text-indent: 44px;
+            }
+
             .dropdown-content {
               display: none;
               position: absolute;
               background-color: #f6f6f6;
               min-width: 230px;
-              overflow: auto;
+              overflow: hidden;
               border: 1px solid #ddd;
               z-index: 1;
             }
@@ -72,9 +97,8 @@
         <div class="row">
             <div class="column" id="map-area" class="abc">
                     <h1>2016 Country Sustainability Exploration</h1>
-                    <a href="./about.html" id="about-link">About this Project</a>
                     <p id="blurb">
-                        A country's sustainability margin refers to the difference between its biocapacity and ecological footprint. A country with a negative sustainability margin consumes more resources than it produces, deeming it unsustainable. Click on the countries to explore their ecological data.
+                        A country's sustainability margin refers to the difference between its biocapacity and ecological footprint. A country with a negative sustainability margin consumes more resources than it produces, deeming it unsustainable. Click on the countries to explore their ecological data. <a href="./about.html" id="about-link">About this Project</a>
                     </p>
                     <ul>
                         <i class="fas fa-circle fa-1x" style="color: #760000"></i>
@@ -95,39 +119,23 @@
             
             <div class="column" id="info">
                     <form onsubmit= "return formsubmit(event)">
-                            <input type="text" id="realtxt" onkeyup="javascript:searchSel();" style='width:300px;' placeholder='Search...'/>
+                            <input type="text" id="realtxt" onkeyup="javascript:searchSel();" style='width:300px;'>
                             <br/>
-                             <select id="myDropdown" style='width:300px;'></select>
+                             <select id="myDropdown" style='width:300px;' placeholder = ''></select>
                              <br/>
-                             <button id= "wemadeit"> Submit </button>
+                             <button id= "wemadeit">Search</button>
                            </form>
 
-                <ul id="key">
-                    <i class="fas fa-circle fa-2x" style="color: #760000"></i>
-                    <i class="fas fa-circle fa-2x" style="color: rgb(197, 0, 0)"></i>
-                    <i class="fas fa-circle fa-2x" style="color: rgb(255, 111, 111)"></i>
-                    <i class="fas fa-circle fa-2x" style="color: #81FF98"></i>
-                    <i class="fas fa-circle fa-2x" style="color: rgb(0, 207, 93)"></i>
-                    <i class="fas fa-circle fa-2x" style="color:rgb(8, 85, 33)"></i>
-					<br>
-                    <p id="low">Low Sustainability</p>
-                    <p id="high">High Sustainability</p>
-                    <br>
-                    <div id="nodata">
-					<i class="fas fa-circle fa-2x" id="nodata" style="color: #222222"></i> 
-					<br>
-					<p>No Data</p>
-                    </div>
-                </ul>
-                <div id="stacked-area-chart" style='position:relative;'></div>
+                
+                
 
 				<p id="blurb" style="display: none;">
 					A country's sustainability margin refers to the difference between its biocapacity and carbon dioxide emmisions. A country with a positive margin emits less CO2 than it can handle (and vice versa). Click on the countries to explore their ecological data
 				</p>
-                <span id="countryName"></span>
+                <span id="selectedCountry">Selected Country: </span><br><span id="countryName"></span>
                 <br>
                 <span id="countrySus"></span>
-                <div class="row">
+                <div class="row" id="charts">
                     <!-- <div class="column">
                         <div id="stacked-bar-chart"></div>
                     </div>
@@ -142,28 +150,29 @@
                     </div> -->
                     <div class="column">
                         <div id="info">
-                            <ul id="keyArea">
-                                        
-                            </ul>
+                            
                         </div>
                         <div id="bar-chart">
                     </div>
+                    <div id="stacked-area-chart" style='position:relative;'></div>
                     </div>
                     <div class="column">
                         
                         <div id="stacked-bar-chart"></div>
                     </div>
                     
-
+                    <ul id="keyArea">
+                                        
+                        </ul>
                         
                 </div>
 				
-				<div id="stacked-area-chart" style='position:fixed;'></div>
-				<div id="timeline"></div>
-                </div>
             </div>
             </div>
         </div>
+        <div id="stacked-area-chart"></div>
+				<!-- <div id="timeline"></div> -->
+                </div>
     </section>
     <script src="./js/topojson.min.js"></script>
     <script type='module' src="./js/map.js"></script>
