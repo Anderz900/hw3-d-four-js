@@ -6,6 +6,9 @@ h1{
     margin-top: 1%;
 }
 
+h2 {
+    color: #fff;
+}
 body {
     background: #181818;
 }
@@ -26,19 +29,24 @@ form{
 
 #stacked-bar-chart{
     transform: translate(0, 40px);
+    font-size: 16px;
     margin-left: 15%;
+    margin-top: 1.5%;
+    color: #ddd;
 }
 
-#stacked-bar-chart{
+/* #stacked-bar-chart{
     margin-bottom: 4%;
     transform: translate(0, 10px)
     
-}
+} */
 
 #stacked-area-chart{
     margin-bottom: 4%;
     transform: translate(0, 40px);
     margin-left: 25%;
+    font-size: 16px;
+    color: #ddd;
 }
 
 #key{

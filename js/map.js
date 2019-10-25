@@ -41,6 +41,9 @@ let xAxis = d3.axisBottom()
 let yAxis = d3.axisLeft()
     .scale(y);
 
+let selectedCountry;
+let prevSelected = null;
+
 let footprint = {
     type: "Ecological footprint",
     Cropland: 0,
@@ -322,6 +325,15 @@ function ecologyMap(){
 
         console.log(d);
         let country = d.properties.name;
+        // if(prevSelected == null){
+        //     selectedCountry = country;
+        // } else {
+        //     if(selectedCountry == country) {
+        //         return;
+        //     }
+        // }
+        
+        
         handleCoordination(country);
         onSelectCountry(country);
 
@@ -338,7 +350,7 @@ function ecologyMap(){
         
         // document.querySelector('#blurb').innerHTML = ''
         
-        document.querySelector('#keyArea').innerHTML = '<li><i class="fas fa-square fa-1.4x" style="color: #1f77b4"></i>Cropland</li><li><i class="fas fa-square fa-1.4x" style="color: #ff7f0e"></i>Grazing Land</li><li><i class="fas fa-square fa-1.4x" style="color: #2ca02c"></i>Forestland</li><li><i class="fas fa-square fa-1.4x" style="color: #d62728"></i>Fishing Water</li><li><i class="fas fa-square fa-1.4x" style="color: #9467bd"></i>Carbon/Urban</li>'
+        document.querySelector('#keyArea').innerHTML = '<li><i class="fas fa-square fa-1.4x" style="color: #1f77b4"></i>Cropland</li><li><i class="fas fa-square fa-1.4x" style="color: #ff7f0e"></i><br>Grazing Land</li><li><i class="fas fa-square fa-1.4x" style="color: #2ca02c"></i>Forestland</li><li><i class="fas fa-square fa-1.4x" style="color: #d62728"></i><br>Fishing Water</li><li><i class="fas fa-square fa-1.4x" style="color: #9467bd"></i>Carbon/Urban</li>'
 
         document.querySelector('#countryName').innerHTML = d.properties.name
         
@@ -564,6 +576,7 @@ function drawStackedBarChart(countryData) {
         .attr("transform", "translate(20," + -20 + ")")
         .attr("fill", "#ddd")
         .text("Sustainability Breakdown Chart");
+
 }
 
 ecologyMap()
