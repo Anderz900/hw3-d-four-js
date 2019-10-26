@@ -1,0 +1,191 @@
+h1{
+    margin-left: 4%;
+    color: #fff;
+    font-weight: bold;
+    font-size: 45px;
+    margin-top: 1%;
+}
+
+h2 {
+    color: #fff;
+}
+body {
+    background: #181818;
+}
+
+ul{
+    list-style: none;
+    margin-left: 4%;
+    transform: translate(0, -30px);
+}
+
+#nodata{
+    padding-left: 150px;
+}
+
+form{
+    margin-left: 15%;
+}
+
+
+
+#stacked-bar-chart{
+    transform: translate(-102.5px, 50px);
+    font-size: 16px;
+    margin-left: 15%;
+    margin-top: 1.5%;
+    color: #ddd;
+}
+
+/* #stacked-bar-chart{
+    margin-bottom: 4%;
+    transform: translate(0, 35px)
+    
+} */
+
+#stacked-area-chart{
+    margin-bottom: 4%;
+    margin-left: 25%;
+    font-size: 16px;
+    color: #ddd;
+    margin-bottom: 15%;
+    transform: translate(0, 60px);
+}
+
+
+
+#keyArea{
+    display: grid;
+    width: 200px;
+    height: 20px;
+    list-style: none;
+    transform: translate(80px, 0px);
+}
+
+#keyArea li{
+    text-decoration: none;
+    transform: translate(655px, 70px);
+}
+
+/* #key{
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    font-size: 12px;
+}
+
+
+#key i{
+    padding-right: 4px
+} */
+
+#keyArea{
+    position: absolute;
+    /* transform: translate(0px, -200px); */
+}
+
+#map {
+    margin-left: 15px;
+    margin-right: 40px;
+}
+
+#blurb{
+    padding-top: 10px;
+    margin-left: 4%;
+    font-size: 16px;
+    transform: translate(0, -20px);
+    font-weight: lighter;
+    color: #fff;
+}
+
+#map-area{
+    margin-top: 1%;
+    color: #878787;
+}
+
+#selectedCountry{
+    font-size: 50px;
+    margin-left: 20%;
+    position: fix;
+}
+
+
+
+#info{
+    color: #CBCBCB;
+    text-align: left;
+    margin-top: 2%;
+
+    /* position: relative; */
+}
+
+#info li{
+    margin-left: -10%;
+    font-size: 12px;
+    
+}
+
+div #info{
+    transform: translate(-60px, 0);
+}
+
+#info ul{
+    transform: translate(20px, 50px)
+}
+
+section{
+    height: 100vh;
+    overflow: hidden;
+}
+#countryName{
+    font-size: 48px;
+    margin-left: 14%;
+}
+
+#selectedCountry{
+    font-size: 45px;
+    padding-right: 8px;
+    margin-left: 14%;
+}
+
+#countrySus{
+    font-size: 28px;
+    margin-left: 14%;
+}
+
+li{
+    font-size: 20px;
+    float: left
+}
+i{
+    padding-right: 32px;
+    font-size: 12px;
+    font-family: sans-serif;
+}
+
+p{
+    padding-top: 10px;
+    display: inline-block;
+    left: 0;
+    font-size: 12px;
+    color: #fff
+    
+}
+
+#move{
+    margin-left: 20%;
+}
+
+#low{
+    padding-right: 132px;
+}
+#high{
+    /* margin-right:100px; */
+    padding-right: 110px;
+}
+#nodata p{
+    font-size: 16px;
+}
+
+#about {
+    margin-left: 0%;
+}

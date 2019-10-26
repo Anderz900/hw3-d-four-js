@@ -1,3 +1,5 @@
+
+
 export default function StackedAreaChart(){
 
     // initialize size
@@ -8,22 +10,52 @@ export default function StackedAreaChart(){
         bottom: 60
     };
 
-    let width=800;
-    let height=400;
+    //let width=325;
+    let width=280;
+    // let height=320;
+    let height = 350;
 
     // initialize axis variables to be updated in real time
     let x = d3.scaleTime();
     let y = d3.scaleLinear();
     let color = d3.scaleOrdinal(d3.schemeCategory10);
     let yAxis = d3.axisLeft().scale(y);
-    let xAxis = d3.axisBottom().scale(x);
+    let xAxis = d3.axisBottom().scale(x).ticks(6);
     let listeners = d3.dispatch('select');
 
     let stack, stackedData, area, tooltip;
-
+    //  function dataFiltering(x){
+    //    var attractions = attractionData;
+    //    console.log(attractionData);
+    
+    //    attractions.sort(function(a,b){return b.x - a.x});
+    //    console.log(attractions)
+    //    attractions.slice(0,5);
+    //    attractions = attractions.slice(0,5);
+    //    renderBarChart(attractions);
+    
     // reusable chart update function
+    function removeColumn(data, colIndex) {
+        var temp = data.split("\n");
+        let res = '';
+        for(var i = 0; i < temp.length; ++i) {
+            temp[i] = temp[i].split(",");
+            res+= temp[i].splice(colIndex,1) + '\n';
+            temp[i] = temp[i].join(","); 
+        }
+        return res;
+        
+    }
+   
+    
+
+
     function chart(selection){
         selection.each(function(data){ // contains a currently selected container element
+            
+            
+
+            
 
             // initialize internal structure once
             let svg = d3.select(this).selectAll('svg')
@@ -57,7 +89,6 @@ export default function StackedAreaChart(){
             let group = svg.select("g")
                 .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 
-            tooltip = group.select('.focus')
 
             let countries = data.length>0?Object.keys(data[0]).filter(d=>d!=="Year"):[];
             
@@ -100,8 +131,6 @@ export default function StackedAreaChart(){
                 .style('fill', (d, i)=>color(countries[i]))
                 .attr('d', d=>area(d))
                 .on("click", handleClick)
-                .on("mouseover", (d,i)=>tooltip.text(countries[i]))
-                .on("mouseout", d=>tooltip.text(""));
 
             countryStacks.exit().remove()
 
@@ -112,6 +141,15 @@ export default function StackedAreaChart(){
                 .call(xAxis)
 
             group.select('.y-axis').call(yAxis)
+
+            group.append("g")
+             
+                .append("text")
+                    .attr("transform", "translate(0,0)")
+                    .attr("fill", "#ddd")
+                    .text("Carbon Emissions(1970-2017)")
+                    .style('transform', 'translate(0, -27px)')
+                    .style('font-size', '16px')
         })
     }
 
@@ -133,10 +171,11 @@ export default function StackedAreaChart(){
     };
 
     function handleClick(d,i){
-		listeners.apply("select", this, [d.key,d.index]);
+		console.log('Hello World')
 	}
 
     return chart
 
 }
+
 
