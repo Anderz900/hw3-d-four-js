@@ -30,7 +30,7 @@ form{
 
 
 #stacked-bar-chart{
-    transform: translate(-50px, 50px);
+    transform: translate(-102.5px, 50px);
     font-size: 16px;
     margin-left: 15%;
     margin-top: 1.5%;
@@ -80,7 +80,7 @@ form{
 
 #keyArea{
     position: absolute;
-    transform: translate(0px, -200px);
+    /* transform: translate(0px, -200px); */
 }
 
 #map {
