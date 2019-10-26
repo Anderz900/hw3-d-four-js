@@ -14,6 +14,9 @@ let divSchemeNeg
 let divSchemePos
 let hoverListener
 let categoryData;
+let prevcountryglobal;
+let flag = "red";
+let flag2= "blue";
 
 let marginBar={
     top: 40,
@@ -43,7 +46,6 @@ let yAxis = d3.axisLeft()
 
 let selectedCountry;
 let prevSelected = null;
-let count = 0;
 
 let footprint = {
     type: "Ecological footprint",
@@ -186,15 +188,14 @@ function ecologyMap(){
         .projection(projection)
 
         let worldFiltered = topojson.feature(worldData, worldData.objects.countries).features
-        console.log(worldFiltered);
-        console.log(worldFiltered.length);
+        
         let list1 = [];
         let list2 = []
         for (let j = 0; j< worldFiltered.length; j++){
             list1.push(worldFiltered[j]);
             list2.push(worldFiltered[j].properties.name);   
         }
-        console.log(list2);
+        
 
         g.selectAll('path')
             .data(worldFiltered)
@@ -254,29 +255,34 @@ function ecologyMap(){
             countryList();
 
 
-        
-            d3.select("#wemadeit")
-            .on("click", function(){
-                let e = document.getElementById("myDropdown");
-                console.log(e.value);
-                //let e = document.querySelector('#selection');
-                //let selectedcountry = e.options[e.selectedIndex]//.value;
-                console.log('-------- search box',  e.value);
-                console.log("heyo");
-                console.log(list2);
-                let i;
-                for (let j = 0; j< list2.length; j++){
-                    if (e.value == list2[j]){i = j;}
-                }
-                clicked(list1[i]);
-            })
+       
+        d3.select("#wemadeit")
+        .on("click", function(){
+            let e = document.getElementById("myDropdown");
+            console.log(e.value);
+            
+            
+            //let e = document.querySelector('#selection');
+            //let selectedcountry = e.options[e.selectedIndex]//.value;
+            console.log('-------- search box',  e.value);
+            
+            
+            let i;
+            for (let j = 0; j< list2.length; j++){
+                if (e.value == list2[j]){i = j;}
+            }
+            clicked(list1[i]);
+        })
     
     
     })
 
+    
+
+    
     function countryList(){
         let countrylist = Object.keys(areaCountryData[0]).slice(1);
-        console.log(document.getElementById("myDropdown"));
+        
         d3.select("#myDropdown").selectAll("option").data(countrylist, function(d){
             return d;
         })
@@ -287,10 +293,21 @@ function ecologyMap(){
 
     
 
-    function onSelectCountry(d, list2){
-        console.log(list2);
+    function onSelectCountry(d){
+        console.log(d, "yooooo");
         filterCountry = filterCountry===d?null:d;
         let filtered = filterCountryData(filterCountry, filterRange);
+        console.log("----onSelect before", flag, flag2);
+        
+        //if (flag == "green" && flag2 == "yellow"){return;} 
+        if(prevSelected == selectedCountry && flag2 == "blue" && flag == "red"){ filtered = filterCountryData(selectedCountry, filterRange);}
+        else if (prevSelected == selectedCountry && flag2 == "yellow" && flag == "green"){
+            console.log("sanitycheck")
+            return;}
+        flag = "green";
+        flag2 = "yellow";
+        prevSelected = selectedCountry;
+        console.log("----onSelect", flag, flag2);
         d3.select("#stacked-area-chart")
             .datum(filtered)
             .call(areaChart);
@@ -320,43 +337,43 @@ function ecologyMap(){
     }
 
     function clicked(d) {
-        console.log(count);
+
+        console.log(selectedCountry);
         console.log(d);
         let country = d.properties.name;
-        console.log(prevSelected);
-        if (prevSelected == null){
+        selectedCountry = country;
+        
+        
+        console.log("---clicked prevSelected,selected:", prevSelected, selectedCountry);
+
+        if (prevSelected == selectedCountry && flag2 == "blue" && flag == "red"){
+            console.log("okay"); 
+        }
+        // else if (prevSelected == selectedCountry && flag2 == "yellow" && flag == "green"){
+        //     console.log("sanitycheck")
+        //     return;}
+        else if (prevSelected == null){
             prevSelected = country;
             selectedCountry = country;
-            count++;
-        } else {
-            if (selectedCountry == country) {
-                console.log(selectedCountry);
-                reset();
-                if(count == 2) {
-                    count = 0;
-                    clicked(d);
-                }
-                count++;
-                return;
-            } else {
-                count = 0;
-                prevSelected = selectedCountry;
-                selectedCountry = country;
-            }
-        }
+            console.log("here");
+        } 
+        else if (flag == "red" && prevSelected != selectedCountry){
+            console.log("ok");
+            flag = "red";
+            flag2 = "blue";}
+        //else{prevSelected = selectedCountry;}
+        
+    
     
         
 
-        
-        
+        console.log("----clicked", flag);
+        console.log("----clicked", flag2);
         
         handleCoordination(country);
         onSelectCountry(country);
 
-        let filtered = filterCountryData(filterCountry, filterRange);
-        d3.select("#stacked-area-chart")
-            .datum(filtered)
-            .call(areaChart);
+        
 
         // d3.select("#stacked-area-chart")
         //     .datum(areaCountryData)
@@ -393,7 +410,12 @@ function ecologyMap(){
             document.querySelector('#countrySus').setAttribute('style', 'color:#181818')
         }
 
-        if (active.node() === this) return reset();
+        if (active.node() === this){
+            flag = "red";
+            flag2 = "blue";
+            console.log("out");
+            return reset();
+        }
         active.classed("active", false);
         active = d3.select(this).classed("active", true);
         active.style('stroke', '#fff')
@@ -573,7 +595,7 @@ function drawStackedBarChart(countryData) {
           //getCategory(d);
       })
       .on("mouseout", function(d) {
-      });	
+      });   
   
   let xAxisGroup = 
   group.append("g")
