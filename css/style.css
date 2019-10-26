@@ -32,7 +32,8 @@ form{
 #stacked-bar-chart{
     transform: translate(-102.5px, 50px);
     font-size: 16px;
-    margin-left: 15%;
+    margin-left: 120px;
+    position: relative;
     margin-top: 1.5%;
     color: #ddd;
 }
@@ -48,6 +49,7 @@ form{
     margin-left: 25%;
     font-size: 16px;
     color: #ddd;
+    position: relative;
     margin-bottom: 15%;
     transform: translate(0, 60px);
 }
