@@ -61,13 +61,12 @@ form{
     width: 200px;
     height: 20px;
     list-style: none;
-    position: relative;
     transform: translate(80px, 0px);
 }
 
 #keyArea li{
     text-decoration: none;
-    transform: translate(655px, 70px);
+    transform: translate(500px, -250px);
 }
 
 /* #key{
